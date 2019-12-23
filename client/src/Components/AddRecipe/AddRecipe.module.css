@@ -1,0 +1,118 @@
+form input, form textarea, .addRecipeForm form select {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+}
+
+form input, form textarea {
+    width: 600px;
+}
+
+.addRecipeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #2d2d2d;
+}
+
+.addRecipeForm h2 {
+    margin-bottom: 20px;
+}
+
+.addRecipeForm form {
+    width: 600px;
+}
+
+.addRecipeForm form label {
+    margin: 10px;
+}
+
+.addRecipeForm form select option {
+    font-size: 16px;
+}
+
+.addRecipeForm form textarea {
+    height: 150px;
+}
+
+.deleteIng {
+    background: red;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+form button {
+    padding: 10px;
+    border-radius: 6px;
+    background: #79CC7D;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.btnSend {
+    margin: 20px 20px 0 0;
+}
+
+.contianerIngredients {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.describeInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.describeInfo input, .describeInfo select {
+    width: 280px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.formRecipe .recipeContainer, .formRecipe .describeInfo {
+    margin-top: 20px;
+    display: flex;
+}
+
+.formRecipe div:first-child {
+    margin-top: 0px;
+}
+
+.boxIng input {
+    width: 120px;
+}
+
+.boxIng {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxIng {
+    display: flex;
+}
+
+.arrayIng {
+    margin-top: 20px;
+}
+
+.BoxInstruction .box {
+    margin-bottom: 20px;
+}
+
+.btnRender, .btnStep button {
+    margin: 20px 0;
+}
+
+.btnRender, .btnStep {
+    display: flex;
+}
+
+.recipeContainerBtn {
+    display: flex;
+    justify-content: center;
+}

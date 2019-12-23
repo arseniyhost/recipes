@@ -1,0 +1,82 @@
+.homePage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainBlock {
+    display: flex;
+    width: 90vw;
+    height: 350px;
+}
+
+.mainBlock .dishesPhoto {
+
+}
+
+.mainBlock .dishesPhoto img {
+    height: 350px;
+    width: auto;
+}
+
+.mainBlock  .textAbout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #79CC7D;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.categories {
+    margin-top: 50px;
+}
+
+.categories h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.containerCategories {
+    display: flex;
+    flex-direction: column;
+}
+
+.containerCategories .box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.containerCategories .box:last-child {
+    margin-bottom: 0px;
+}
+
+.containerCategories img {
+    width: 350px;
+    height: 210px;
+}
+
+.containerCategories .box .itemRecipe {
+    margin-right: 20px;
+    position: relative;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    height: 210px;
+}
+
+.containerCategories .box .itemRecipe h3 {
+    position: absolute;
+    top: 15%;
+    color: #fff;
+    left: 10%;
+    font-size: 1.5em;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.containerCategories  .itemRecipe:last-child {
+    margin-right: 0px;
+}
+
