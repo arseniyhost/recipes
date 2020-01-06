@@ -1,7 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import {Spinner} from 'reactstrap';
-import ScrollTopButton from '../ScrollTop/ScrollTop';
 import style from './Recipe.module.css';
 
 const Recipe = (props) => {
@@ -17,7 +15,6 @@ const Recipe = (props) => {
                 <RecipePresentasion newContent={props.newContent} />
                 <RecipeInformation newContent={props.newContent} />
             </div>
-            <ScrollTopButton />
         </div>
     )
 }

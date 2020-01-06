@@ -11,7 +11,7 @@ class AddRecipeContainer extends React.Component {
     render() {
         return (
             <div>
-                <AddRecipe isAuthenticated={this.props.isAuthenticated} recipesId={this.props.recipesId} addRecipe={this.props.addRecipeThunk} />
+                <AddRecipe getItems={this.props.getItems} isAuthenticated={this.props.isAuthenticated} recipesId={this.props.recipesId} addRecipe={this.props.addRecipeThunk} />
             </div>
         )
     }

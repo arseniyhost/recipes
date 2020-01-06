@@ -90,6 +90,7 @@ const AddRecipe = (props) => {
         }
         props.addRecipe(recipeData);
         setSubButton(true);
+        props.getItems();
         console.log(recipeData);
     }
 

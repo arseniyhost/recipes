@@ -12,7 +12,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import style from './List.module.css';
-import ScrollTopButton from './ScrollTop/ScrollTop';
 
 const useStyles = makeStyles({
     card: {
@@ -90,7 +89,6 @@ const List = ({ loading, recipes, onChangeRecipe, props }) => {
                     }
                 </div>
             </div>
-             <ScrollTopButton {...props} />
         </Row>
     );
 }
