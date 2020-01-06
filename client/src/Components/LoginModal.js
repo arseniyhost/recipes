@@ -15,6 +15,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../store/actions/authActions';
 import { clearErrors } from '../store/actions/errorActions';
+import { deIsModal, isRegisterModal } from './../store/reducers/authReducer';
+import style from './LoginModal.module.css';
 
 class LoginModal extends Component {
   state = {
@@ -56,7 +58,15 @@ class LoginModal extends Component {
     this.setState({
       modal: !this.state.modal
     });
+    this.props.deIsModal();
   };
+
+  onFalse = () => {
+    this.setState({
+      modal: false
+    });
+    this.props.isRegisterModal();
+  }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -65,11 +75,11 @@ class LoginModal extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { email, password} = this.state;
+    const { email, password } = this.state;
 
     const user = {
-        email,
-        password
+      email,
+      password
     }
 
     // Attempt to login
@@ -80,11 +90,11 @@ class LoginModal extends Component {
     return (
       <div>
         <NavLink onClick={this.toggle} href='#'>
-          Login
+          Войти
         </NavLink>
 
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Login</ModalHeader>
+        <Modal isOpen={this.state.modal || this.props.isModal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>Вход</ModalHeader>
           <ModalBody>
             {this.state.msg ? (
               <Alert color='danger'>{this.state.msg}</Alert>
@@ -101,18 +111,21 @@ class LoginModal extends Component {
                   onChange={this.onChange}
                 />
 
-                <Label for='password'>Password</Label>
+                <Label for='password'>Пароль</Label>
                 <Input
                   type='password'
                   name='password'
                   id='password'
-                  placeholder='Password'
+                  placeholder='Пароль'
                   className='mb-3'
                   onChange={this.onChange}
                 />
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
-                  Login
+                  Войти
                 </Button>
+                <div className={style.registerModal}>
+                  <p onClick={this.onFalse}>Зарегистрироваться</p>
+                </div>
               </FormGroup>
             </Form>
           </ModalBody>
@@ -124,10 +137,11 @@ class LoginModal extends Component {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
-  error: state.error
+  error: state.error,
+  isModal: state.auth.isModal
 });
 
 export default connect(
   mapStateToProps,
-  { login, clearErrors }
+  { login, clearErrors, deIsModal, isRegisterModal }
 )(LoginModal);

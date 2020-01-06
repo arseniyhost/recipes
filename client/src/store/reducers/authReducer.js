@@ -6,7 +6,11 @@ import {
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  ACTIVE_MODAL,
+  ACTIVE_REGISTER_MODAL,
+  DEACTIVE_MODAL,
+  DEACTIVE_REGISTER_MODAL
 } from '../actions/types';
 
 import axios from 'axios';
@@ -17,11 +21,29 @@ const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
   isLoading: false,
-  user: null
+  user: null,
+  isModal: false,
+  isRegisterModal: false
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case ACTIVE_MODAL:
+      return {
+        ...state, isModal: true
+      };
+    case DEACTIVE_MODAL:
+      return {
+        ...state, isModal: false
+      };
+    case ACTIVE_REGISTER_MODAL:
+      return {
+        ...state, isRegisterModal: true
+      };
+    case DEACTIVE_REGISTER_MODAL:
+      return {
+        ...state, isRegisterModal: false
+      };
     case USER_LOADING:
       return {
         ...state,
@@ -167,4 +189,10 @@ export const tokenConfig = getState => {
 
   return config;
 };
+
+export const isModal = () => ({ type: ACTIVE_MODAL });
+export const deIsModal = () => ({ type: DEACTIVE_MODAL });
+
+export const isRegisterModal = () => ({type: ACTIVE_REGISTER_MODAL});
+export const deIsRegisterModal = () => ({type: DEACTIVE_REGISTER_MODAL});
 

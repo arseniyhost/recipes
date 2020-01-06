@@ -56,8 +56,8 @@ const List = ({ loading, recipes, onChangeRecipe, props }) => {
     return (
         <Row>
             <InputGroup>
-                <InputGroupAddon addonType="prepend">Search</InputGroupAddon>
-                <Input onChange={(e) => { updateSearch(e) }} type="text" value={search} placeholder="Search" />
+                <InputGroupAddon addonType="prepend">Поиск</InputGroupAddon>
+                <Input onChange={(e) => { updateSearch(e) }} type="text" value={search} />
             </InputGroup>
             <div className={style.containerList}>
                 <div>

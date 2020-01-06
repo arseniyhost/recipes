@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import {Spinner} from 'reactstrap';
 import ScrollTopButton from '../ScrollTop/ScrollTop';
+import style from './Recipe.module.css';
 
 const Recipe = (props) => {
 
@@ -11,8 +12,8 @@ const Recipe = (props) => {
 
    
     return (
-        <div>
-            <div>
+        <div className={style.containerRecipe}>
+            <div className={style.mainInformation}>
                 <RecipePresentasion newContent={props.newContent} />
                 <RecipeInformation newContent={props.newContent} />
             </div>
@@ -27,7 +28,7 @@ const RecipePresentasion = ({ newContent }) => {
             <div>
                 <h2>{newContent.title}</h2>
             </div>
-            <div>
+            <div className={style.contentImg}>
                 <img src={newContent.urlPhoto} alt="recipePhoto" />
             </div>
         </div>
@@ -42,7 +43,7 @@ const RecipeInformation = ({ newContent }) => {
                 <h3>Описание:</h3>
                 <p>{newContent.description}</p>
             </div>
-            <div>
+            <div className={style.ingredients}>
                 <h3>Ингредиенты:</h3>
                 <ul>
                     {newContent.Ingredients &&
@@ -65,7 +66,7 @@ const RecipeInformation = ({ newContent }) => {
                         </div>
                     })
                 }
-                <div>
+                <div className={style.loveFood}>
                     <p>Приятного аппетита!</p>
                 </div>
             </div>

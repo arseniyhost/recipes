@@ -28,7 +28,7 @@ class App extends React.Component {
             <Route exact path="/" render={() => <Home /> } />
             <Route path="/recipes" render={() => {
               return <div>
-                <ItemsModal />
+                
                 <ListShop />
               </div>
             }} />

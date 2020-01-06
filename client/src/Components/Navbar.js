@@ -15,7 +15,8 @@ import RegisterModal from './RegisterModal';
 import LoginModal from './LoginModal';
 import Logout from './Logout';
 import { NavLink } from 'react-router-dom';
-import './NavBar.css';
+import style from './NavBar.module.css';
+import logo from './../images/recipes-logo.png';
 
 class AppNavbar extends Component {
   state = {
@@ -37,45 +38,47 @@ class AppNavbar extends Component {
 
     const authLinks = (
       <Fragment>
-        <NavItem>
-          <span className='navbar-text mr-3'>
-            <strong>{user ? `Welcome ${user.name}` : ''}</strong>
-          </span>
-        </NavItem>
-        <NavItem>
-            <NavLink className="text-white" to="/recipes">Recipes</NavLink>
-        </NavItem>
-        <NavItem>
-          <Button id="btnAddRecipe" size="sm" color="success">
-            <NavLink to="/addrecipe">Add Recipe</NavLink>
-          </Button>
-        </NavItem>
-        <NavItem>
-          <Logout />
-        </NavItem>
+        <div className={style.fragment}>
+          <NavItem className={style.nameUser}>
+            {user ? `Welcome ${user.name}` : ''}
+          </NavItem>
+          <NavItem>
+            <NavLink activeClassName={style.active} to="/recipes">Recipes</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className={style.btnAdd} activeClassName={style.active} to="/addrecipe">Add Recipe</NavLink>
+          </NavItem>
+          <NavItem>
+            <Logout />
+          </NavItem>
+        </div>
       </Fragment>
     );
 
     const guestLinks = (
       <Fragment>
-        <NavItem>
-            <NavLink className="text-white" to="/recipes">Recipes</NavLink>
-        </NavItem>
-         <NavItem>
-          <RegisterModal />
-        </NavItem>
-        <NavItem>
-          <LoginModal />
-        </NavItem>
+        <div className={style.fragment}>
+          <NavItem>
+            <NavLink activeClassName={style.active} to="/recipes">Recipes</NavLink>
+          </NavItem>
+          <NavItem>
+            <RegisterModal />
+          </NavItem>
+          <NavItem>
+            <LoginModal />
+          </NavItem>
+        </div>
       </Fragment>
     );
 
     return (
-      <div id="header">
+      <div id={style.header}>
         <Navbar color='dark' dark expand='sm' className='mb-5'>
           <Container>
             <NavbarBrand>
-              <NavLink className="text-white" to="/">RecipesLogo</NavLink>
+              <NavLink className="text-white" to="/">
+                <img className={style.logo} src={logo} alt="logo"/>
+              </NavLink>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

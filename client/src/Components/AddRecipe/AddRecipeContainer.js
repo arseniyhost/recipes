@@ -1,17 +1,17 @@
 import React from 'react';
 import AddRecipe from './AddRecipe';
 import { connect } from 'react-redux';
-import { addRecipeThunk } from './../../store/actions/itemAction';
+import { addRecipeThunk, getItems } from './../../store/actions/itemAction';
 
 class AddRecipeContainer extends React.Component {
-    // componentDidMount() {
-    //     this.props.getRecipeThunk();
-    // }
+    componentDidMount() {
+        this.props.getItems();
+    }
 
     render() {
         return (
             <div>
-                <AddRecipe recipesId={this.props.recipesId} addRecipe={this.props.addRecipeThunk} />
+                <AddRecipe isAuthenticated={this.props.isAuthenticated} recipesId={this.props.recipesId} addRecipe={this.props.addRecipeThunk} />
             </div>
         )
     }
@@ -20,8 +20,9 @@ class AddRecipeContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        recipesId: state.recipes.recipes
+        recipesId: state.recipes.recipes,
+        isAuthenticated: state.auth.isAuthenticated
     }
 }
 
-export default connect(mapStateToProps, { addRecipeThunk })(AddRecipeContainer);
+export default connect(mapStateToProps, { addRecipeThunk, getItems })(AddRecipeContainer);

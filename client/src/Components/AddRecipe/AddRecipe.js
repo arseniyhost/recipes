@@ -97,6 +97,11 @@ const AddRecipe = (props) => {
         return <Redirect to="/recipes" />
     }
 
+    if(!props.isAuthenticated) {
+        return <Redirect to="/recipes" />
+    }
+
+
 
     return (
         <div className={style.addRecipeForm}>

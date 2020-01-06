@@ -15,6 +15,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../store/actions/authActions';
 import { clearErrors } from '../store/actions/errorActions';
+import { isModal, deIsRegisterModal } from './../store/reducers/authReducer';
+import style from './RegisterModal.module.css';
+import './RegisterModal.css';
 
 class RegisterModal extends Component {
   state = {
@@ -57,7 +60,16 @@ class RegisterModal extends Component {
     this.setState({
       modal: !this.state.modal
     });
+
+    this.props.deIsRegisterModal();
   };
+
+  onFalse = () => {
+    this.setState({
+      modal: false
+    });
+    this.props.isModal();
+  }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -83,23 +95,23 @@ class RegisterModal extends Component {
     return (
       <div>
         <NavLink onClick={this.toggle} href='#'>
-          Register
+          Регистрация
         </NavLink>
 
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register</ModalHeader>
+        <Modal isOpen={this.state.modal || this.props.isRegisterModal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>Регистрация</ModalHeader>
           <ModalBody>
             {this.state.msg ? (
               <Alert color='danger'>{this.state.msg}</Alert>
             ) : null}
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for='name'>Name</Label>
+                <Label for='name'>Имя</Label>
                 <Input
                   type='text'
                   name='name'
                   id='name'
-                  placeholder='Name'
+                  placeholder='Имя пользователя'
                   className='mb-3'
                   onChange={this.onChange}
                 />
@@ -114,18 +126,23 @@ class RegisterModal extends Component {
                   onChange={this.onChange}
                 />
 
-                <Label for='password'>Password</Label>
+                <Label for='password'>Пароль</Label>
                 <Input
                   type='password'
                   name='password'
                   id='password'
-                  placeholder='Password'
+                  placeholder='Пароль'
                   className='mb-3'
                   onChange={this.onChange}
                 />
+
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
-                  Register
+                  Зарегистрироваться
                 </Button>
+                <div className={style.activeModal}>
+                  <p>Уже зарегистрированы?</p>
+                  <p className={style.enter} onClick={this.onFalse}>Войти</p>
+                </div>
               </FormGroup>
             </Form>
           </ModalBody>
@@ -137,10 +154,11 @@ class RegisterModal extends Component {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
-  error: state.error
+  error: state.error,
+  isRegisterModal: state.auth.isRegisterModal
 });
 
 export default connect(
   mapStateToProps,
-  { register, clearErrors }
+  { register, clearErrors, isModal, deIsRegisterModal }
 )(RegisterModal);
