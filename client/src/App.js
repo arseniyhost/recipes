@@ -12,6 +12,8 @@ import { Route } from 'react-router-dom';
 import AddRecipeContainer from './Components/AddRecipe/AddRecipeContainer';
 import RecipeContainer from './Components/Recipe/RecipeContainer';
 import Footer from './Components/Footer/Footer';
+import ScrollTop from "react-scrolltop-button";
+import { Button } from "reactstrap";
 
 class App extends React.Component {
   componentDidMount() {
@@ -41,6 +43,12 @@ class App extends React.Component {
                 return <RecipeContainer />
               }} />
             </Container>
+            <ScrollTop
+              text={"UP"}
+              distance={200}
+              speed={500}
+              
+            />
           </main>
           <footer>
             <Footer />

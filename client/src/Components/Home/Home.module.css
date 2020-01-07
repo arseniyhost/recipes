@@ -53,16 +53,66 @@
     margin-bottom: 0px;
 }
 
-.containerCategories img {
-    width: 350px;
-    height: 210px;
-}
-
 .containerCategories .box .itemRecipe {
     margin-right: 20px;
     position: relative;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    width: 350px;
     height: 210px;
+}
+
+.containerCategories .box:first-child .itemRecipe:first-child {
+    background: url("./../../images/dish_1.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:first-child .itemRecipe:nth-child(2) {
+    background: url("./../../images/dish_2.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:first-child .itemRecipe:nth-child(3) {
+    background: url("./../../images/dish_3.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:nth-child(2) .itemRecipe:first-child {
+    background: url("./../../images/dish_4.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:nth-child(2) .itemRecipe:nth-child(2) {
+    background: url("./../../images/dish_5.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:nth-child(2) .itemRecipe:nth-child(3) {
+    background: url("./../../images/dish_6.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:nth-child(3) .itemRecipe:first-child {
+    background: url("./../../images/dish_7.JPG") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:nth-child(3) .itemRecipe:nth-child(2) {
+    background: url("./../../images/dish_8.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.containerCategories .box:nth-child(3) .itemRecipe:nth-child(3) {
+    background: url("./../../images/dish_9.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .containerCategories .box .itemRecipe h3 {
@@ -79,4 +129,3 @@
 .containerCategories  .itemRecipe:last-child {
     margin-right: 0px;
 }
-

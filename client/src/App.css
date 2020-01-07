@@ -22,5 +22,18 @@
 
 main {
     min-height: 100vh;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
+}
+
+.react-scrolltop-button {
+    border-radius: 50%;
+    text-transform: uppercase;
+}
+
+
+button.react-scrolltop-button {
+    border-radius: 50%;
+    background: #79CC7D;
+    border: none;
+    color: #fff;
 }

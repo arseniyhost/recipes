@@ -22,7 +22,7 @@ const Recipe = (props) => {
 const RecipePresentasion = ({ newContent }) => {
     return (
         <div>
-            <div>
+            <div className={style.title}>
                 <h2>{newContent.title}</h2>
             </div>
             <div className={style.contentImg}>
@@ -35,8 +35,8 @@ const RecipePresentasion = ({ newContent }) => {
 const RecipeInformation = ({ newContent }) => {
     let i = 1, j = 1;
     return (
-        <div>
-            <div>
+        <div className={style.contentRecipe}>
+            <div className={style.boxDescription}>
                 <h3>Описание:</h3>
                 <p>{newContent.description}</p>
             </div>
@@ -51,12 +51,12 @@ const RecipeInformation = ({ newContent }) => {
                     }
                 </ul>
             </div>
-            <div>
+            <div className={style.instructionsContainer}>
                 <h3>Пошаговое приготовление:</h3>
                 {
                     newContent.instructions &&
                     newContent.instructions.map((ins, id) => {
-                        return <div  key={id}>
+                        return <div className={style.box}  key={id}>
                     <p>{`Шаг ${i++}`}</p>
                             <p>{ins.instructionsStep}</p>
                             {ins.photo && <div><img src={ins.photo} alt="photoIns" /></div>}
