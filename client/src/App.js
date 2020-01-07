@@ -44,10 +44,9 @@ class App extends React.Component {
               }} />
             </Container>
             <ScrollTop
-              text={"UP"}
+              text={"UPP"}
               distance={200}
               speed={500}
-              
             />
           </main>
           <footer>
