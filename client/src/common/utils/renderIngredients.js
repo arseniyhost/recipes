@@ -1,9 +1,10 @@
 import React from 'react';
 import style from "./../../Components/AddRecipe/AddRecipe.module.css";
 import { Field } from 'redux-form';
-import { FieldMaterial } from './utils';
+import { FieldMaterial, FieldInput } from './utils';
 import ButtonIconBox from './ButtonIconBox';
 import ButtonBox from './ButtonBox';
+import { require } from '../../common/validates/validates';
 
 export const renderIngredients = ({ fields, meta: { error } }) => {
     return (
@@ -13,22 +14,23 @@ export const renderIngredients = ({ fields, meta: { error } }) => {
                     <ButtonIconBox color={"secondary"} type="button" title="Remove ingredient" onClick={() => fields.remove(id)} />
                     <div className={style.boxIng}>
                         <Field
+                            validate={[require]}
                             name={ing + "nameOfProduct"}
                             type="text"
                             placeholder="Ингредиент:"
-                            component={FieldMaterial}
+                            component={FieldInput}
                         />
                         <Field
                             name={ing + "amount"}
-                            type="text"
+                            type="number"
                             placeholder="Кол-во:"
-                            component={FieldMaterial}
+                            component={FieldInput}
                         />
                         <Field
                             name={ing + "type"}
                             type="text"
                             placeholder="Ед:"
-                            component={FieldMaterial}
+                            component={FieldInput}
                         />
                     </div>
                 </div>

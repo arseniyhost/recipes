@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./../../Components/AddRecipe/AddRecipe.module.css";
 import { Field } from 'redux-form';
-import { FieldTextarea, FieldMaterial } from './utils';
+import { FieldTextarea, FieldMaterial,FieldInput } from './utils';
 import { require, minValues } from '../../common/validates/validates';
 import ButtonIconBox from './ButtonIconBox';
 import ButtonBox from './ButtonBox';
@@ -50,9 +50,9 @@ export const renderInstructions = ({ fields, meta: { error } }) => {
             
                             <div>
                                 <Field
-                                    component={FieldMaterial}
+                                    label={"Фото"}
+                                    component={FieldInput}
                                     name={ing + "photo"}
-                                    placeholder={"Photo URL"}
                                 />
                             </div>
                         </div>

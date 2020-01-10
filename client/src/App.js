@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './Components/Navbar';
-import ListShop from './Components/ListContainer';
+import NavBar from './Components/Navbar/Navbar';
+import ListShop from './Components/List/ListContainer';
 import Home from './Components/Home/Home';
 import { Provider } from 'react-redux';
 import store from './store/store';
@@ -13,7 +13,6 @@ import AddRecipeContainer from './Components/AddRecipe/AddRecipeContainer';
 import RecipeContainer from './Components/Recipe/RecipeContainer';
 import Footer from './Components/Footer/Footer';
 import ScrollTop from "react-scrolltop-button";
-import { Button } from "reactstrap";
 
 class App extends React.Component {
   componentDidMount() {
@@ -30,7 +29,7 @@ class App extends React.Component {
           <main>
             <Container>
               <Route exact path="/" render={() => <Home />} />
-              <Route path="/recipes" render={() => {
+              <Route path="/recipes/:category?" render={() => {
                 return <div>
 
                   <ListShop />

@@ -1,0 +1,68 @@
+.fragment {
+    display: flex;
+    align-items: center;
+}
+
+#header a {
+    text-decoration: none;
+}
+
+
+.fragment a {
+    margin-right: 20px;
+    color: #bcbcbc;
+}
+
+.nameUser {
+    margin-right: 20px;
+    color: #bcbcbc;
+    font-weight: bold;
+}
+
+a.btnAdd {
+    border-radius: 8px;
+    background: green;
+    padding: 8px;
+    color: #fff;
+    transition: .4s all;
+}
+
+.btnAdd:hover {
+    background: green;
+    color: #abc;
+}
+
+.logo {
+    width: 130px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .fragment a {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 586px) {
+    .fragment a {
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .fragment {
+        flex-direction: column;
+    }
+
+    .fragment a {
+        margin-right: 0px;
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .nameUser {
+        margin-right: 0px;
+    }
+}
