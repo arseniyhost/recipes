@@ -39,14 +39,17 @@ class AppNavbar extends Component {
     const authLinks = (
       <Fragment>
         <div className={style.fragment}>
+          <NavItem>
+            <NavLink activeClassName={style.active} exact to="/">Главная</NavLink>
+          </NavItem>
           <NavItem className={style.nameUser}>
             {user ? `Welcome ${user.name}` : ''}
           </NavItem>
           <NavItem>
-            <NavLink activeClassName={style.active} to="/recipes">Recipes</NavLink>
+            <NavLink activeClassName={style.active} to="/recipes">Рецепты</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className={style.btnAdd} activeClassName={style.active} to="/addrecipe">Add Recipe</NavLink>
+            <NavLink className={style.btnAdd} activeClassName={style.active} to="/addrecipe">Добавить рецепт</NavLink>
           </NavItem>
           <NavItem>
             <Logout />
@@ -59,7 +62,10 @@ class AppNavbar extends Component {
       <Fragment>
         <div className={style.fragment}>
           <NavItem>
-            <NavLink activeClassName={style.active} to="/recipes">Recipes</NavLink>
+            <NavLink activeClassName={style.active} exact to="/">Главная</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink activeClassName={style.active} to="/recipes">Рецепты</NavLink>
           </NavItem>
           <NavItem>
             <RegisterModal />
@@ -77,7 +83,7 @@ class AppNavbar extends Component {
           <Container>
             <NavbarBrand>
               <NavLink className="text-white" to="/">
-                <img className={style.logo} src={logo} alt="logo"/>
+                <img className={style.logo} src={logo} alt="logo" />
               </NavLink>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />

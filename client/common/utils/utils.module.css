@@ -15,3 +15,10 @@
     margin-top: 5px;
 }
 
+@media screen and (max-width: 604) {
+    .arrayIng .contaierText {
+        width: 120px;
+    }
+}
+
+

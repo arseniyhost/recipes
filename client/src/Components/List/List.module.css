@@ -20,3 +20,21 @@
 .media {
     height: 300px;
 }
+
+@media screen and (max-width: 991px) {
+    .containerList .card {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .containerList .card {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 454px) {
+    .containerList .card {
+        width: 320px;
+    }
+}

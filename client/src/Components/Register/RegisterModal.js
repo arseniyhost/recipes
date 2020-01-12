@@ -98,7 +98,8 @@ class RegisterModal extends Component {
           Регистрация
         </NavLink>
 
-        <Modal isOpen={this.state.modal || this.props.isRegisterModal} toggle={this.toggle}>
+    
+        <Modal isOpen={this.state.modal || this.props.isRegisterModal}  toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Регистрация</ModalHeader>
           <ModalBody>
             {this.state.msg ? (
@@ -155,7 +156,8 @@ class RegisterModal extends Component {
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
   error: state.error,
-  isRegisterModal: state.auth.isRegisterModal
+  isRegisterModal: state.auth.isRegisterModal,
+  isModal: state.auth.isModal
 });
 
 export default connect(

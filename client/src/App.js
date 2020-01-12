@@ -13,6 +13,7 @@ import AddRecipeContainer from './Components/AddRecipe/AddRecipeContainer';
 import RecipeContainer from './Components/Recipe/RecipeContainer';
 import Footer from './Components/Footer/Footer';
 import ScrollTop from "react-scrolltop-button";
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 class App extends React.Component {
   componentDidMount() {
@@ -31,7 +32,6 @@ class App extends React.Component {
               <Route exact path="/" render={() => <Home />} />
               <Route path="/recipes/:category?" render={() => {
                 return <div>
-
                   <ListShop />
                 </div>
               }} />
@@ -43,9 +43,11 @@ class App extends React.Component {
               }} />
             </Container>
             <ScrollTop
-              text={"UPP"}
+              text={<ArrowUpwardIcon/>}
               distance={200}
               speed={500}
+              icon={<ArrowUpwardIcon/>}
+              id={"spinner"}
             />
           </main>
           <footer>

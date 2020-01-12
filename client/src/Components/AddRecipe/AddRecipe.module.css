@@ -101,6 +101,10 @@ form button {
     margin-top: 20px;
 }
 
+.instructionsBox ul {
+    list-style: none;
+}
+
 .BoxInstruction .box {
     margin-bottom: 20px;
 }
@@ -116,4 +120,48 @@ form button {
 .recipeContainerBtn {
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-width: 628px) {
+    .formRecipe input, .formRecipe textarea {
+        width: 100%;
+    }
+    .formRecipe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .addRecipeForm form select {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .arrayIng input {
+        width: 60%;
+        margin: 0px;
+    }
+}
+
+.arrayIng .errorType {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 477px) {
+    .describeInfo {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .addRecipeForm form select {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 604) {
+    .arrayIng .contaierText {
+        width: 100px;
+    }
 }

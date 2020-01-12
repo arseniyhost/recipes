@@ -5,12 +5,22 @@
 
 #header a {
     text-decoration: none;
+    font-weight: 600;
 }
 
 
 .fragment a {
     margin-right: 20px;
     color: #bcbcbc;
+}
+
+.fragment a:hover {
+    margin-right: 20px;
+    color: #79CC7D;
+}
+
+a.active, a.btnAdd .active {
+    color: #79CC7D;
 }
 
 .nameUser {

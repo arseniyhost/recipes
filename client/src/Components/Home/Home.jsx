@@ -10,7 +10,12 @@ const Home = (props) => {
                     <img src="https://smachno.ua/wp-content/uploads/2018/11/30/rybnye-blyuda.jpg" alt="dishes" />
                 </div>
                 <div className={style.textAbout}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione amet, excepturi facilis cumque ducimus aliquam aperiam recusandae molestias modi harum inventore! Molestiae quidem at pariatur error, alias recusandae quam consectetur incidunt architecto sunt, rem sed suscipit impedit fugiat omnis non aliquam? Saepe, eaque in. Voluptatibus nobis unde optio reiciendis rem!
+                    Многие люди считают, что они не умеют готовить. Мол, они не повара, никогда не учились
+                    этому и не имеют опыта. Но на самом деле это совсем не так, потому что повара – это
+                    обычные люди, которые просто готовят больше, чем другие. Тем самым улучшая свои кулинарные
+                    способности. Когда человек начинает часто готовить, он практически становится поваром.
+                    Это как в тренажерном зале – чем больше вы тренируетесь, тем быстрее приобретаете навыки.
+                    Поэтому готовьте больше и чаще! На сайте вы найдете рецепты на любой вкус!
                </div>
             </div>
 
@@ -18,55 +23,54 @@ const Home = (props) => {
                 <h2>Репецты</h2>
                 <div className={style.containerCategories}>
                     <div className={style.box}>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Первые блюда">
+                        <NavLink className={style.itemRecipe} to="/recipes/Первые блюда">
+                            <div className={style.itemText}>
                                 <h3>Первые блюда</h3>
-                            </NavLink>
-                        </div>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Вторые блюда">
+                            </div>
+                        </NavLink>
+                        <NavLink className={style.itemRecipe} to="/recipes/Вторые блюда">
+                            <div className={style.itemText}>
                                 <h3>Вторые блюда</h3>
-                            </NavLink>
-                        </div>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Салаты">
+                            </div>
+                        </NavLink>
+                        <NavLink className={style.itemRecipe} to="/recipes/Салаты">
+                            <div className={style.itemText}>
                                 <h3>Салаты</h3>
-                            </NavLink>
-                        </div>
+                            </div>
+                        </NavLink>
                     </div>
                     <div className={style.box}>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Закуски">
+                        <NavLink className={style.itemRecipe} to="/recipes/Закуски">
+                            <div className={style.itemText}>
                                 <h3>Закуски</h3>
-                            </NavLink>
-                        </div>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Десерты">
+                            </div>
+                        </NavLink>
+                        <NavLink className={style.itemRecipe} to="/recipes/Десерты">
+                            <div className={style.itemText}>
                                 <h3>Десерты</h3>
-                            </NavLink>
-                        </div>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Выпечка">
+                            </div>
+                        </NavLink>
+                        <NavLink className={style.itemRecipe} to="/recipes/Выпечка">
+                            <div className={style.itemText}>
                                 <h3>Выпечка</h3>
-                            </NavLink>
-                        </div>
+                            </div>
+                        </NavLink>
                     </div>
                     <div className={style.box}>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Соусы">
+                        <NavLink className={style.itemRecipe} to="/recipes/Соусы">
+                            <div className={style.itemText}>
                                 <h3>соусы</h3>
-                            </NavLink>
-                        </div>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes/Напитки">
+                            </div>
+                        </NavLink>
+                        <NavLink className={style.itemRecipe} to="/recipes/Напитки">
+                            <div className={style.itemText}>
                                 <h3>напитки</h3>
-                            </NavLink>
-                        </div>
-                        <div className={style.itemRecipe}>
-                            <NavLink to="/recipes">
+                            </div></NavLink>
+                        <NavLink className={style.itemRecipe} to="/recipes">
+                            <div className={style.itemText}>
                                 <h3>все рецепты</h3>
-                            </NavLink>
-                        </div>
+                            </div>
+                        </NavLink>
                     </div>
                 </div>
             </div>

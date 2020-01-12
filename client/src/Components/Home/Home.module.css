@@ -11,16 +11,14 @@
     height: 350px;
 }
 
-.mainBlock .dishesPhoto {
-
-}
+.mainBlock .dishesPhoto {}
 
 .mainBlock .dishesPhoto img {
     height: 350px;
     width: auto;
 }
 
-.mainBlock  .textAbout {
+.mainBlock .textAbout {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +34,7 @@
 .categories h2 {
     margin-bottom: 20px;
     font-size: 2.5em;
+    text-align: center;
 }
 
 .containerCategories {
@@ -59,6 +58,18 @@
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     width: 350px;
     height: 210px;
+}
+
+.containerCategories .box a.itemRecipe {
+    text-decoration: none;
+}
+
+.containerCategories .box .itemRecipe .itemText {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .containerCategories .box:first-child .itemRecipe:first-child {
@@ -116,16 +127,78 @@
 }
 
 .containerCategories .box .itemRecipe h3 {
-    position: absolute;
-    top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
     color: #fff;
-    left: 10%;
     font-size: 1.5em;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     text-transform: uppercase;
 }
 
-.containerCategories  .itemRecipe:last-child {
+.containerCategories .itemRecipe:last-child {
     margin-right: 0px;
+}
+
+@media screen and (max-width: 1120px) {
+    .containerCategories .box {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .containerCategories .box .itemRecipe {
+        margin-right: 0px;
+        margin-bottom: 40px;
+        width: 450px;
+        height: 310px;
+    }
+    .containerCategories .box .itemRecipe:last-child {
+        margin-bottom: 0px;
+    }
+
+    .containerCategories .box .itemRecipe:last-child {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 1019px) {
+    .mainBlock {
+        flex-direction: column;
+        width: 500px;
+        height: 500px;
+    }
+    .mainBlock .dishesPhoto img {
+        width: 500px;
+        height: auto;
+    }
+    .mainBlock .textAbout {
+        padding: 20px;
+        font-size: 16px;
+    }
+    .categories {
+        margin-top: 150px;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .mainBlock {
+        width: 100%;
+        margin: 0;
+    }
+    .mainBlock .dishesPhoto img {
+        width: 100%;
+    }
+    .mainBlock .textAbout {
+        font-size: 14px;
+    }
+    .categories {
+        margin-top: 150px;
+        width: 100%;
+    }
+
+    .containerCategories .box .itemRecipe {
+        width: 100%;
+        height: 215px;
+    }
 }

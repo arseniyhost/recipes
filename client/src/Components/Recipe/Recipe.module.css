@@ -74,10 +74,14 @@
 }
 
 .instructionsContainer p {
-    text-align: center;
+    text-align: left;
     margin-left: 0px;
     text-indent: 0px;
     margin-bottom: 0px;
+}
+
+.instructionsContainer .box p:nth-child(2) {
+    text-indent: 20px;
 }
 
 .instructionsContainer .box:first-child {
@@ -98,4 +102,29 @@
 .instructionsContainer .box p:first-child {
     font-weight: bold;
     font-size: 18px;
+}
+
+@media screen and (max-width: 727px) {
+    .contentImg img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .contentImg img, .instructionsContainer .box img {
+        width: 80%;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+    }
+
+    .contentRecipe h3  {
+        font-size: 1rem
+    }
+    
+    .contentRecipe p {
+        font-size: 16px;
+    }
 }
