@@ -1,0 +1,7 @@
+.recipeChange {
+    display: flex;
+}
+
+.recipeChange button {
+    margin-left: 10px;
+}

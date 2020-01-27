@@ -43,7 +43,7 @@ class AppNavbar extends Component {
             <NavLink activeClassName={style.active} exact to="/">Главная</NavLink>
           </NavItem>
           <NavItem className={style.nameUser}>
-            {user ? `Welcome ${user.name}` : ''}
+            <NavLink activeClassName={style.active} exact to="/user">{user ? `Welcome ${user.name}` : ''}</NavLink>
           </NavItem>
           <NavItem>
             <NavLink activeClassName={style.active} to="/recipes">Рецепты</NavLink>

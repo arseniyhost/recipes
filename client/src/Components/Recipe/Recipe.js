@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import style from './Recipe.module.css';
+import { Spinner } from 'reactstrap';
 
 const Recipe = (props) => {
-
-    if(!props.newContent) {
-        return <Redirect to="/recipes" />
+    if (props.loading) {
+        return <Spinner style={{ width: '3rem', height: '3rem' }} />
     }
 
    

@@ -37,9 +37,9 @@ const itemsReducer = (state = initState, action) => {
         }
         
         case GET_CURRENT_RECIPE: {
-            let mass = { ...state.recipes };
             return {
-                ...state, currentRecipe: mass[action.recipeContent - 1]
+                ...state, currentRecipe: action.recipe,
+                loading: false
             }
         }
 

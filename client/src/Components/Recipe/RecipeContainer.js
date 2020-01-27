@@ -10,7 +10,9 @@ class RecipeContainer extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0);
         let id = this.props.match.params.id;
+        console.log(2);
         this.onChangeRecipe(id);
+        this.props.getCurrentRecipe(this.props.match.params.id);
     }
 
 
@@ -21,7 +23,7 @@ class RecipeContainer extends React.Component {
     render() {
         return (
             <div>
-                <Recipe key={1} newContent={this.props.newContent} />
+                <Recipe key={1} newContent={this.props.newContent} loading={this.props.loading} />
             </div>
         )
     }
@@ -30,6 +32,7 @@ class RecipeContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         newContent: state.recipes.currentRecipe,
+        loading: state.recipes.loading
     }
 }
 

@@ -12,6 +12,14 @@ export const recipesAPI = {
             })
     },
 
+    getCurrentRecipe(id) {
+        return instance.get(`/recipes/${id}`)
+    },
+
+    updateRecipe(recipe, id) {
+        return instance.put(`/recipes/${id}`, recipe);
+    },
+
     createRecipe(recipe) {
         return instance.post('/recipes', recipe)
     }

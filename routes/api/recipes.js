@@ -5,50 +5,57 @@ const auth = require('../../middleware/auth');
 // Recipe Model
 const Recipe = require('../../models/Recipe')
 
-// router.get('/', (req, res) => {
-//     Item.find()
-//         .sort({ date: -1 })
-//         .then(items => res.json(items))
-// });
-
-// router.post('/', auth, (req, res) => {
-//     const newItem = new Item({
-//         name: req.body.name
-//     });
-
-//     newItem.save().then(item => res.json(item));
-// });
-
-// router.delete('/:id', auth, (req, res) => {
-//     Item.findById(req.params.id)
-//         .then(item => item.remove().then(() => res.json({success: true})))
-//         .catch(err => res.status(404).json({success: false}));
-// });
-
-
 app.get(`/`, (req, res) => {
     Recipe.find()
-    .then(recipes => res.json(recipes))
+    .then(recipes => {
+        return res.json(recipes)
+    })
     // return res.status(200).send(recipes);
+});
+
+app.get(`/:id`, (req, res) => {
+    const id = req.params.id;
+    const details = { 'id': id};
+    Recipe.findOne(details, (err, item) => {
+        if(err) {
+            res.send(err);
+        } else {
+            res.send(item);
+        }
+    })
 });
 
 app.post(`/`, (req, res) => {
     let newRecipe = Recipe.create(req.body);
     newRecipe.save().then(recipe => res.json(recipe));
+});
+
+app.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const details = {'id': id};
+    const recipe = { 
+        title: req.body.title, 
+        urlPhoto: req.body.urlPhoto,
+        category: req.body.category,
+        description: req.body.description,
+        instructions: req.body.instructions,
+        Ingredients: req.body.Ingredients
+    };
+    Recipe.update(details, recipe, (err, result) => {
+        if(err) {
+            res.send(err);
+        } else {
+            res.send(recipe);
+        }
+    })
 })
 
 app.delete(`/:id`, (req, res) => {
     const { id } = req.params;
-
+    // const idRecipe = { 'id': id};
     Recipe.findByIdAndDelete(id)
     .then(recipe => recipe.remove().then(() => res.json({success: true})))
     .catch(err => res.status(404).json({success: false}));
-
-    // return res.status(202).send({
-    //     error: false,
-    //     recipe
-    // })
-
 })
 
 module.exports = app;

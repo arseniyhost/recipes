@@ -14,6 +14,7 @@ import RecipeContainer from './Components/Recipe/RecipeContainer';
 import Footer from './Components/Footer/Footer';
 import ScrollTop from "react-scrolltop-button";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import UserContainer from './Components/UserPage/UserContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -41,12 +42,15 @@ class App extends React.Component {
               <Route path="/recipe/:id" render={() => {
                 return <RecipeContainer />
               }} />
+              <Route path="/user" render={() => {
+                return <UserContainer />
+              }} />
             </Container>
             <ScrollTop
-              text={<ArrowUpwardIcon/>}
+              text={<ArrowUpwardIcon />}
               distance={200}
               speed={500}
-              icon={<ArrowUpwardIcon/>}
+              icon={<ArrowUpwardIcon />}
               id={"spinner"}
             />
           </main>
@@ -59,4 +63,7 @@ class App extends React.Component {
   }
 }
 
+
+
 export default App;
+

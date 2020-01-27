@@ -11,7 +11,13 @@ class AddRecipeContainer extends React.Component {
     render() {
         return (
             <div>
-                <AddRecipe getItems={this.props.getItems} isAuthenticated={this.props.isAuthenticated} recipesId={this.props.recipesId} addRecipe={this.props.addRecipeThunk} />
+                <AddRecipe
+                    user={this.props.user}
+                    getItems={this.props.getItems}
+                    isAuthenticated={this.props.isAuthenticated}
+                    recipesId={this.props.recipesId}
+                    addRecipe={this.props.addRecipeThunk}
+                />
             </div>
         )
     }
@@ -21,7 +27,8 @@ class AddRecipeContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         recipesId: state.recipes.recipes,
-        isAuthenticated: state.auth.isAuthenticated
+        isAuthenticated: state.auth.isAuthenticated,
+        user: state.auth
     }
 }
 

@@ -15,6 +15,16 @@ export const getItems = () => (dispatch) => {
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
+export const getCurrentRecipe = (id) => dispatch => {
+    dispatch(setItemsLoading());
+    axios.get(`/api/recipes/${id}`)
+        .then(res =>
+            dispatch({
+                type: GET_CURRENT_RECIPE,
+                recipe: res.data
+            }))
+};
+
 export const addItem = (item) => (dispatch, getState) => {
     axios
         .post('api/recipes', item, tokenConfig(getState))
@@ -33,8 +43,6 @@ export const deleteItem = (id) => (dispatch, getState) => {
     )
 };
 
-export const getCurrentRecipe = (recipeContent) => ({ type: GET_CURRENT_RECIPE, recipeContent});
-
 export const setItemsLoading = () => ({ type: ITEMS_LOADING });
 
 export const addRecipe = (recipe) => ({ type: ADD_RECIPE, recipe });
@@ -42,6 +50,5 @@ export const addRecipe = (recipe) => ({ type: ADD_RECIPE, recipe });
 export const addRecipeThunk = (recipe) => async dispatch => {
     let response = await recipesAPI.createRecipe(recipe);
     dispatch(addRecipe(recipe));
-
     console.log(response.data.recipe);
 }
