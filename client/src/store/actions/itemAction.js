@@ -25,6 +25,14 @@ export const getCurrentRecipe = (id) => dispatch => {
             }))
 };
 
+export const updateRecipe = (id, recipe) => (dispatch, getState) => {
+    axios.put(`/api/recipes/${id}`, recipe, tokenConfig(getState))
+        .then(res => dispatch({
+            type: GET_ITEMS,
+            payload: res.data
+        }))
+}
+
 export const addItem = (item) => (dispatch, getState) => {
     axios
         .post('api/recipes', item, tokenConfig(getState))

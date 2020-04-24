@@ -33,6 +33,7 @@ const FieldArraysForm = props => {
                     <Field
                         name="urlPhoto"
                         type="text"
+                        value="privet"
                         component={FieldInput}
                         label="Главное фото:"
                         placeholder="photo"
@@ -73,15 +74,24 @@ const FieldArraysForm = props => {
 }
 
 const AddRecipe = (props) => {
+    debugger;
 
     let [subButton, setSubButton] = useState(false);
 
+    var idUserRecipe;
+
+    if(props.user.user.id) {
+        idUserRecipe = props.user.user.id;
+    } else {
+        idUserRecipe = props.user.user._id
+    }
+
     let onSubmit = (formData) => {
-        let idUser = props.user.user._id;
+        
     
         let recipeData = {
             id: props.recipesId.length + 1,
-            idRecipe: idUser,
+            idRecipe: idUserRecipe,
             title: formData.title,
             urlPhoto: formData.urlPhoto,
             description: formData.description,

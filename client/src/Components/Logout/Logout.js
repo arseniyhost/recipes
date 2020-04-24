@@ -5,7 +5,6 @@ import { logout } from './../../store/actions/authActions';
 
 export class Logout extends Component {
   
-
   render() {
     return (
       <Fragment>

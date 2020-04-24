@@ -15,6 +15,7 @@ import Footer from './Components/Footer/Footer';
 import ScrollTop from "react-scrolltop-button";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import UserContainer from './Components/UserPage/UserContainer';
+import UpdateRecipeContainer from './Components/UpdateRecipe/UpdateRecipeContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -44,6 +45,9 @@ class App extends React.Component {
               }} />
               <Route path="/user" render={() => {
                 return <UserContainer />
+              }} />
+              <Route path="/updaterecipe" render={() => {
+                return <UpdateRecipeContainer />
               }} />
             </Container>
             <ScrollTop

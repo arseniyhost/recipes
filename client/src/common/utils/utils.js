@@ -2,12 +2,12 @@ import React from 'react';
 import style from './utils.module.css';
 import Input from '@material-ui/core/Input';
 
-export const FieldInput = ({ input, label, placeholder, type, meta: { touched, error } }) => {
+export const FieldInput = ({ input, label, placeholder, value, type, meta: { touched, error } }) => {
     let hasError = touched && error;
     return <div className="block">    
         <div className={style.contaierText}>
             <label>{label}</label>
-            <input className={style.fieldType + " " + (hasError ? style.errorType : "")} {...input} type={type} placeholder={placeholder} />
+            <input className={style.fieldType + " " + (hasError ? style.errorType : "")} {...input} value={value} type={type} placeholder={placeholder} />
         </div>
         {hasError && <span className={style.error}>{error}</span>}
     </div>

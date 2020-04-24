@@ -17,7 +17,6 @@ class UserContainer extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <User
                 onDeleteClick={this.onDeleteClick}
