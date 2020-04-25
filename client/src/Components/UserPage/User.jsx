@@ -14,86 +14,103 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
     if (!user) {
         return <Redirect to="/" />
     }
-    
-    const userRecipes = ownRecipes.filter( r => r.hasOwnProperty('idRecipe'));
+
+    const userRecipes = ownRecipes.filter(r => r.hasOwnProperty('idRecipe'));
     console.log(userRecipes);
-    
+
 
     return (
-        <div>
-            <div>
-                <h2>Account</h2>
-                <h3>Hello {user.name}</h3>
+        <div className={style.wrapper}>
+            <div className={style.titleUser}>
+                <h2>Профиль</h2>
+                <p className={style.nameUser}>Добро пожаловать {user.name}</p>
             </div>
-            <div>
-                <p>Your own recipes:</p>
+            <div className={style.titleRecipes}>
+                <p>Ваши рецепты</p>
             </div>
-            <div>
+            <div className={style.allRecipes}>
                 {
                     userRecipes.map(r => {
-                        if(user._id) {
-                            if(r.idRecipe === user._id) {
+
+                        if (user._id) {
+                            if (r.idRecipe === user._id) {
                                 return <div className={style.recipeChange}>
-                                <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
+                                    <div className={style.photoRecipe}>
+                                        <img src={r.urlPhoto} alt="photo" />
+                                    </div>
+                                    {/* <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
                                     <h3>{r.title}</h3>
-                                </NavLink>
-                                <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
-                                    <Button color="success">Edit</Button>
-                                </NavLink>
-                                <div>
-                                    <Button
-                                        onClick={toggle}
-                                        color="danger">
-                                        Delete this recipe
-                                    </Button>
-                                    <Modal isOpen={modalWindow} toggle={toggle}>
-                                        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-                                        <ModalBody>
-                                            Do you wanna delete this recipe?
-                                        </ModalBody>
-                                        <ModalFooter>
-                                            <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Yes</Button>{' '}
-                                            <Button color="secondary" onClick={toggle}>No</Button>
-                                        </ModalFooter>
-                                    </Modal>
+                                </NavLink> */}
+                                    <div className={style.aboveTitle}>
+                                        <h3>{r.title}</h3>
+                                    </div>
+                                    <div className={style.buttonModify}>
+                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
+                                            <Button color="success">Редактировать</Button>
+                                        </NavLink>
+                                        <div className={style.btnDelete}>
+                                            <Button
+                                                onClick={(e) => { toggle(); onChangeRecipe(r.id) }}
+                                                color="danger">
+                                                Удалить
+                                            </Button>
+                                            <Modal isOpen={modalWindow} toggle={toggle}>
+                                                <ModalHeader toggle={toggle}>Удаление</ModalHeader>
+                                                <ModalBody>
+                                                    Вы действительно хотите удалить этот рецепт?
+                                                </ModalBody>
+                                                <ModalFooter>
+                                                    <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Да</Button>{' '}
+                                                    <Button color="secondary" onClick={toggle}>Нет</Button>
+                                                </ModalFooter>
+                                            </Modal>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                           }
+                            }
                         }
                         else {
-                            if(r.idRecipe === user.id) {
+                            if (r.idRecipe === user.id) {
                                 return <div className={style.recipeChange}>
-                                <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
+                                <div className={style.photoRecipe}>
+                                    <img src={r.urlPhoto} alt="photo" />
+                                </div>
+                                {/* <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
+                                <h3>{r.title}</h3>
+                            </NavLink> */}
+                                <div className={style.aboveTitle}>
                                     <h3>{r.title}</h3>
-                                </NavLink>
-                                <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
-                                    <Button color="success">Edit</Button>
-                                </NavLink>
-                                <div>
-                                    <Button
-                                        onClick={toggle}
-                                        color="danger">
-                                        Delete this recipe
-                                    </Button>
-                                    <Modal isOpen={modalWindow} toggle={toggle}>
-                                        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-                                        <ModalBody>
-                                            Do you wanna delete this recipe?
-                                        </ModalBody>
-                                        <ModalFooter>
-                                            <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Yes</Button>{' '}
-                                            <Button color="secondary" onClick={toggle}>No</Button>
-                                        </ModalFooter>
-                                    </Modal>
+                                </div>
+                                <div className={style.buttonModify}>
+                                    <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
+                                        <Button color="success">Редактировать</Button>
+                                    </NavLink>
+                                    <div className={style.btnDelete}>
+                                        <Button
+                                            onClick={(e) => { toggle(); onChangeRecipe(r.id) }}
+                                            color="danger">
+                                            Удалить
+                                        </Button>
+                                        <Modal isOpen={modalWindow} toggle={toggle}>
+                                            <ModalHeader toggle={toggle}>Удаление</ModalHeader>
+                                            <ModalBody>
+                                                Вы действительно хотите удалить этот рецепт?
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Да</Button>{' '}
+                                                <Button color="secondary" onClick={toggle}>Нет</Button>
+                                            </ModalFooter>
+                                        </Modal>
+                                    </div>
                                 </div>
                             </div>
-                           }
+                            }
                         }
                     })
                 }
 
                 <div>
-                    <NavLink to="/addrecipe">Add recipe</NavLink>
+                    <NavLink to="/addrecipe">Добавить рецепт</NavLink>
                 </div>
             </div>
         </div>

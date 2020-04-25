@@ -1,7 +1,45 @@
 .recipeChange {
     display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.recipeChange .aboveTitle {
+    margin: 0 100px;
+    width: 20%;
+}
+
+.recipeChange .buttonModify {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recipeChange .buttonModify .btnDelete {
+    margin-top: 20px;
 }
 
 .recipeChange button {
     margin-left: 10px;
+}
+
+.wrapper .titleUser{
+    text-align: center;
+  
+}
+
+.wrapper .titleUser .nameUser{
+    text-align: left;
+}
+
+.wrapper .photoRecipe {
+    
+}
+
+.wrapper .photoRecipe img{
+    width: 350px;
+    height: 200px;
+    border-radius: 4px;
 }

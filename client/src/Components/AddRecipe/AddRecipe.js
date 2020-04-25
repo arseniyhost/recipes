@@ -74,7 +74,6 @@ const FieldArraysForm = props => {
 }
 
 const AddRecipe = (props) => {
-    debugger;
 
     let [subButton, setSubButton] = useState(false);
 
@@ -87,8 +86,6 @@ const AddRecipe = (props) => {
     }
 
     let onSubmit = (formData) => {
-        
-    
         let recipeData = {
             id: props.recipesId.length + 1,
             idRecipe: idUserRecipe,

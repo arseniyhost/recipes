@@ -30,23 +30,28 @@ app.post(`/`, (req, res) => {
     newRecipe.save().then(recipe => res.json(recipe));
 });
 
-app.put('/:id', (req, res) => {
-    const id = req.params.id;
-    const details = {'id': id};
-    const recipe = { 
-        title: req.body.title, 
-        urlPhoto: req.body.urlPhoto,
-        category: req.body.category,
-        description: req.body.description,
-        instructions: req.body.instructions,
-        Ingredients: req.body.Ingredients
-    };
-    Recipe.update(details, recipe, (err, result) => {
-        if(err) {
-            res.send(err);
-        } else {
-            res.send(recipe);
-        }
+app.put(`/:id`, async (req, res) => {
+    const {id} = req.params;
+    //const details = {'id': id};
+    // const recipe = { 
+    //     title: req.body.title, 
+    //     urlPhoto: req.body.urlPhoto,
+    //     category: req.body.category,
+    //     description: req.body.description,
+    //     instructions: req.body.instructions,
+    //     Ingredients: req.body.Ingredients
+    // };
+    let recipe = await Recipe.findByIdAndUpdate(id, req.body);
+    // Recipe.findOne(details, recipe, (err, result) => {
+    //     if(err) {
+    //         res.send(err);
+    //     } else {
+    //         res.send(recipe);
+    //     }
+    // })
+    return res.status(202).send({
+        error: false,
+        recipe
     })
 })
 
