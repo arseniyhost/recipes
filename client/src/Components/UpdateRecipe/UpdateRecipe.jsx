@@ -14,11 +14,16 @@ import { require, minValues } from './../../common/validates/validates';
 const min = minValues(2);
 
 let InitializeFromStateForm = props => {
-    const { handleSubmit, load, pristine, reset, submitting, data } = props
+    const { handleSubmit, load, pristine, reset, submitting, data } = props;
+
+    const btnBack = () => {
+        window.location.reload();
+    }
     return (
         <Form className={style.formRecipe} onSubmit={handleSubmit}>
-            <div>
+            <div className={style.generalBtn}>
                 <button type="button" onClick={() => load(data)}>Загрузка данных</button>
+                <button type="button" onClick={btnBack}>Назад</button>
             </div>
             <div className={style.recipeContainer}>
                 <div>

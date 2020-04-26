@@ -122,6 +122,11 @@ form button {
     justify-content: center;
 }
 
+.generalBtn {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media screen and (max-width: 628px) {
     .formRecipe input, .formRecipe textarea {
         width: 100%;

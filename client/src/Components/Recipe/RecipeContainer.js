@@ -7,23 +7,32 @@ import { withRouter } from 'react-router-dom';
 
 class RecipeContainer extends React.Component {
 
-    componentDidMount() {
+    onChangeRecipe = (recipeId) => {
+        this.props.getCurrentRecipe(recipeId);
+    }
+
+    refreshRecipe() {
         window.scrollTo(0, 0);
         let id = this.props.match.params.id;
-        console.log(2);
+        
         this.onChangeRecipe(id);
         this.props.getCurrentRecipe(this.props.match.params.id);
     }
 
+    componentDidMount() {
+        this.refreshRecipe();
+    }
 
-    onChangeRecipe = (recipeId) => {
-        this.props.getCurrentRecipe(recipeId);
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.match.params.id !== prevProps.match.params.id) {
+            this.refreshRecipe();
+        }
     }
     
     render() {
         return (
             <div>
-                <Recipe key={1} newContent={this.props.newContent} loading={this.props.loading} />
+                <Recipe {...this.props} idRecipe={!this.props.match.params.id} key={1} newContent={this.props.newContent} loading={this.props.loading} />
             </div>
         )
     }
