@@ -50,6 +50,7 @@ export const renderInstructions = ({ fields, meta: { error } }) => {
             
                             <div>
                                 <Field
+                                    type="text"
                                     label={"Фото"}
                                     component={FieldInput}
                                     name={ing + "photo"}

@@ -40,12 +40,6 @@ const FieldArraysForm = props => {
                         validate={[require, min]}
                     />
                 </div>
-                {/* <Field name="category" validate={[require]} component="select">
-                    <option value="">Select categories</option>
-                    {categories.map(cat => {
-                        return <option value={cat} key={cat}>{cat}</option>
-                    })}
-                </Field> */}
                 <div>
                     <Field label="Катергория:" name="category" validate={[require]} component={FieldSelect} />
                 </div>

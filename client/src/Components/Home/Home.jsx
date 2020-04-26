@@ -7,7 +7,7 @@ const Home = (props) => {
         <div className={style.homePage}>
             <div className={style.mainBlock}>
                 <div className={style.dishesPhoto}>
-                    <img src="https://smachno.ua/wp-content/uploads/2018/11/30/rybnye-blyuda.jpg" alt="dishes" />
+                    <img src="https://chinesenewyear.imgix.net/assets/images/food/chinese-new-year-food-feast.jpg?q=50&w=640&h=360&auto=format" alt="dishes" />
                 </div>
                 <div className={style.textAbout}>
                     Многие люди считают, что они не умеют готовить. Мол, они не повара, никогда не учились
