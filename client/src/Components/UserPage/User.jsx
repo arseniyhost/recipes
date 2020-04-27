@@ -38,11 +38,10 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                     <div className={style.photoRecipe}>
                                         <img src={r.urlPhoto} alt="photo" />
                                     </div>
-                                    {/* <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
-                                    <h3>{r.title}</h3>
-                                </NavLink> */}
                                     <div className={style.aboveTitle}>
-                                        <h3>{r.title}</h3>
+                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
+                                            <h3>{r.title}</h3>
+                                        </NavLink>
                                     </div>
                                     <div className={style.buttonModify}>
                                         <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
@@ -72,38 +71,37 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                         else {
                             if (r.idRecipe === user.id) {
                                 return <div className={style.recipeChange}>
-                                <div className={style.photoRecipe}>
-                                    <img src={r.urlPhoto} alt="photo" />
-                                </div>
-                                {/* <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
-                                <h3>{r.title}</h3>
-                            </NavLink> */}
-                                <div className={style.aboveTitle}>
-                                    <h3>{r.title}</h3>
-                                </div>
-                                <div className={style.buttonModify}>
-                                    <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
-                                        <Button color="success">Редактировать</Button>
-                                    </NavLink>
-                                    <div className={style.btnDelete}>
-                                        <Button
-                                            onClick={(e) => { toggle(); onChangeRecipe(r.id) }}
-                                            color="danger">
-                                            Удалить
+                                    <div className={style.photoRecipe}>
+                                        <img src={r.urlPhoto} alt="photo" />
+                                    </div>
+                                    <div className={style.aboveTitle}>
+                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
+                                            <h3>{r.title}</h3>
+                                        </NavLink>
+                                    </div>
+                                    <div className={style.buttonModify}>
+                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
+                                            <Button color="success">Редактировать</Button>
+                                        </NavLink>
+                                        <div className={style.btnDelete}>
+                                            <Button
+                                                onClick={(e) => { toggle(); onChangeRecipe(r.id) }}
+                                                color="danger">
+                                                Удалить
                                         </Button>
-                                        <Modal isOpen={modalWindow} toggle={toggle}>
-                                            <ModalHeader toggle={toggle}>Удаление</ModalHeader>
-                                            <ModalBody>
-                                                Вы действительно хотите удалить этот рецепт?
+                                            <Modal isOpen={modalWindow} toggle={toggle}>
+                                                <ModalHeader toggle={toggle}>Удаление</ModalHeader>
+                                                <ModalBody>
+                                                    Вы действительно хотите удалить этот рецепт?
                                             </ModalBody>
-                                            <ModalFooter>
-                                                <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Да</Button>{' '}
-                                                <Button color="secondary" onClick={toggle}>Нет</Button>
-                                            </ModalFooter>
-                                        </Modal>
+                                                <ModalFooter>
+                                                    <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Да</Button>{' '}
+                                                    <Button color="secondary" onClick={toggle}>Нет</Button>
+                                                </ModalFooter>
+                                            </Modal>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             }
                         }
                     })
