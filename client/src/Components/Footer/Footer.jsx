@@ -4,7 +4,7 @@ import style from './Footer.module.css';
 const Footer = () => {
     return(
         <div className={style.contentFooter}>
-            Footer
+           Recipes © 2020
         </div>
     );
 }
