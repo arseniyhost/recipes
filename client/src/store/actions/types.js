@@ -5,6 +5,8 @@ export const DELETE_ITEM = "DELETE_ITEM";
 export const ITEMS_LOADING = "ITEMS_LOADING";
 export const GET_CURRENT_RECIPE = 'GET_CURRENT_RECIPE';
 export const ADD_RECIPE = "ADD_RECIPE";
+export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+export const SET_TOTAL_RECIPES = "SET_TOTAL_RECIPES";
 // Auth Reducer
     // USER
 export const USER_LOADING = 'USER_LOADING';

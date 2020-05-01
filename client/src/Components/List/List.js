@@ -27,7 +27,15 @@ const useStyles = makeStyles({
     // }
 });
 
-const List = ({ loading, recipes, onChangeRecipe, props, category }) => {
+const List = ({
+        loading,
+        recipes,
+        onChangeRecipe,
+        category,
+        recipeCount,
+        pageSize,
+        currentPage
+    }) => {
     const [search, setSearch] = useState("");
     const [categories, setCategories] = useState("");
 

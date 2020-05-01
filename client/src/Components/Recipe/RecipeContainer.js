@@ -21,6 +21,7 @@ class RecipeContainer extends React.Component {
 
     componentDidMount() {
         this.refreshRecipe();
+        console.log(this.props.match.params.id);
     }
 
     componentDidUpdate(prevProps, prevState) {

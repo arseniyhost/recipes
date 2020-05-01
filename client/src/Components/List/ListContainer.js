@@ -29,7 +29,15 @@ class ListContainer extends React.Component {
         let cater = this.props.match.params.category;
 
         return (
-            <List category={cater} recipes={this.props.recipes} onChangeRecipe={this.onChangeRecipe} loading={this.props.loading} isAuthenticated={this.props.isAuthenticated} />
+            <List
+                category={cater}
+                recipeCount={this.props.recipeCount}
+                pageSize={this.props.pageSize}
+                recipes={this.props.recipes}
+                onChangeRecipe={this.onChangeRecipe}
+                loading={this.props.loading}
+                isAuthenticated={this.props.isAuthenticated}
+            />
         )
     }
 }
@@ -38,12 +46,19 @@ let mapStateToProps = (state) => {
     return {
         recipes: state.recipes.recipes,
         isAuthenticated: state.auth.isAuthenticated,
-        loading: state.recipes.loading
+        loading: state.recipes.loading,
+        pageSize: state.recipes.pageSize,
+        recipeCount: state.recipes.recipeCount,
+        currentPage: state.recipes.currentPage
     }
 }
 
 export default compose(
-    connect(mapStateToProps, { getItems, addItem, deleteItem, getCurrentRecipe }),
+    connect(mapStateToProps, {
+        getItems,
+        addItem,
+        deleteItem,
+        getCurrentRecipe
+    }),
     withRouter
-)
-    (ListContainer);
+)(ListContainer);

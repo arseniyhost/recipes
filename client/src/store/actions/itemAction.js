@@ -1,4 +1,4 @@
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, GET_CURRENT_RECIPE, ADD_RECIPE } from './../actions/types';
+import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, GET_CURRENT_RECIPE, ADD_RECIPE, SET_CURRENT_PAGE, SET_TOTAL_RECIPES } from './../actions/types';
 import * as axios from 'axios';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
@@ -7,11 +7,8 @@ import { recipesAPI } from './../../api/api';
 export const getItems = () => (dispatch) => {
     dispatch(setItemsLoading());
     axios
-        .get('/api/recipes')
-        .then(res => dispatch({
-            type: GET_ITEMS,
-            payload: res.data
-        }))
+        .get(`/api/recipes`)
+        .then(res => dispatch(getItemsAC(res.data.result, res.data.totalRecipeCount)))
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
@@ -51,7 +48,13 @@ export const deleteItem = (id) => (dispatch, getState) => {
     )
 };
 
+export const getItemsAC = (payload, count) => ({ type: GET_ITEMS, payload, count });
+
 export const setItemsLoading = () => ({ type: ITEMS_LOADING });
+
+export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+
+export const setTotalRecipeAC = (count) => ({ type: SET_TOTAL_RECIPES, count });
 
 export const addRecipe = (recipe) => ({ type: ADD_RECIPE, recipe });
 

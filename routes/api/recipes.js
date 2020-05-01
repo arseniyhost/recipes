@@ -6,18 +6,37 @@ const auth = require('../../middleware/auth');
 const Recipe = require('../../models/Recipe')
 
 app.get(`/`, (req, res) => {
+    const page = req.query.page;
+    const limit = req.query.limit;
+
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
     Recipe.find()
-    .then(recipes => {
-        return res.json(recipes)
-    })
-    // return res.status(200).send(recipes);
+        .then(recipes => {
+            if (page || limit) {
+                const result = {
+                    totalRecipeCount: recipes.length
+                }
+                result.result = recipes.slice(startIndex, endIndex);
+                return res.json(result);
+            } else {
+                const result = {
+                    totalRecipeCount: recipes.length
+                }
+
+                result.result = recipes;
+                return res.json(result);
+            }
+        })
+
 });
 
 app.get(`/:id`, (req, res) => {
     const id = req.params.id;
-    const details = { 'id': id};
+    const details = { 'id': id };
     Recipe.findOne(details, (err, item) => {
-        if(err) {
+        if (err) {
             res.send(err);
         } else {
             res.send(item);
@@ -31,24 +50,10 @@ app.post(`/`, (req, res) => {
 });
 
 app.put(`/:id`, async (req, res) => {
-    const {id} = req.params;
-    //const details = {'id': id};
-    // const recipe = { 
-    //     title: req.body.title, 
-    //     urlPhoto: req.body.urlPhoto,
-    //     category: req.body.category,
-    //     description: req.body.description,
-    //     instructions: req.body.instructions,
-    //     Ingredients: req.body.Ingredients
-    // };
+    const { id } = req.params;
+
     let recipe = await Recipe.findByIdAndUpdate(id, req.body);
-    // Recipe.findOne(details, recipe, (err, result) => {
-    //     if(err) {
-    //         res.send(err);
-    //     } else {
-    //         res.send(recipe);
-    //     }
-    // })
+
     return res.status(202).send({
         error: false,
         recipe
@@ -59,8 +64,8 @@ app.delete(`/:id`, (req, res) => {
     const { id } = req.params;
     // const idRecipe = { 'id': id};
     Recipe.findByIdAndDelete(id)
-    .then(recipe => recipe.remove().then(() => res.json({success: true})))
-    .catch(err => res.status(404).json({success: false}));
+        .then(recipe => recipe.remove().then(() => res.json({ success: true })))
+        .catch(err => res.status(404).json({ success: false }));
 })
 
 module.exports = app;

@@ -1,25 +1,10 @@
 import React from 'react';
 import style from "./../../Components/AddRecipe/AddRecipe.module.css";
 import { Field } from 'redux-form';
-import { FieldTextarea, FieldMaterial,FieldInput } from './utils';
-import { require, minValues } from '../../common/validates/validates';
+import { FieldTextarea, FieldInput } from './utils';
+import { require } from '../../common/validates/validates';
 import ButtonIconBox from './ButtonIconBox';
 import ButtonBox from './ButtonBox';
-
-const min = minValues(2);
-
-// const adaptFileEventToValue = delegate =>
-//     e => delegate(e.target.files[0])
-
-// const FileInput = ({ input: { value: omitValue, onChange, onBlur, ...inputProps }, meta: omitMeta, ...props
-// }) =>
-//     (<input
-//         onChange={adaptFileEventToValue(onChange)}
-//         onBlur={adaptFileEventToValue(onBlur)}
-//         type="file"
-//         {...inputProps}
-//         {...props}
-//     />)
 
 export const renderInstructions = ({ fields, meta: { error } }) => {
     return (

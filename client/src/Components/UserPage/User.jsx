@@ -18,7 +18,6 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
     const userRecipes = ownRecipes.filter(r => r.hasOwnProperty('idRecipe'));
     console.log(userRecipes);
 
-
     return (
         <div className={style.wrapper}>
             <div className={style.titleUser}>

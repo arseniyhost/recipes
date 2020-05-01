@@ -1,14 +1,15 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import style from './Recipe.module.css';
 import { Spinner } from 'reactstrap';
 
 const Recipe = (props) => {
     if (props.loading) {
-        return <Spinner style={{ width: '3rem', height: '3rem' }} />
+        return <div className={style.preloader}>
+            <Spinner style={{ width: '3rem', height: '3rem' }} />
+        </div>
     }
 
-   
+
     return (
         <div className={style.containerRecipe}>
             <div className={style.mainInformation}>
@@ -45,8 +46,18 @@ const RecipeInformation = ({ newContent }) => {
                 <ul>
                     {newContent.Ingredients &&
                         newContent.Ingredients.map((ing, id) => {
-                            return <li key={id}>{`${j++}. ${ing.nameOfProduct} - ${ing.amount} ${ing.type}`}
-                            </li>
+                            if (ing.amount && ing.type) {
+                                return <li key={id}>{`${j++}. ${ing.nameOfProduct} - ${ing.amount} ${ing.type}`}
+                                </li>
+                            }
+                            else if(!ing.amount) {
+                                return <li key={id}>{`${j++}. ${ing.nameOfProduct}`}
+                                </li>
+                            } 
+                            else if(!ing.type) {
+                                return <li key={id}>{`${j++}. ${ing.nameOfProduct} - ${ing.amount}`}
+                                </li>
+                            }
                         })
                     }
                 </ul>
@@ -56,8 +67,8 @@ const RecipeInformation = ({ newContent }) => {
                 {
                     newContent.instructions &&
                     newContent.instructions.map((ins, id) => {
-                        return <div className={style.box}  key={id}>
-                    <p>{`Шаг ${i++}`}</p>
+                        return <div className={style.box} key={id}>
+                            <p>{`Шаг ${i++}`}</p>
                             <p>{ins.instructionsStep}</p>
                             {ins.photo && <div><img src={ins.photo} alt="photoIns" /></div>}
                         </div>

@@ -12,6 +12,14 @@
     width: 100%;
 }
 
+.preloader {
+    margin: 100px auto;
+}
+
+.selected {
+    font-weight: bold;
+}
+
 .card {
     width: 960px;
     margin-top: 38px;

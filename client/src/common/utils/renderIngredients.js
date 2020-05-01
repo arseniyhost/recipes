@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./../../Components/AddRecipe/AddRecipe.module.css";
 import { Field } from 'redux-form';
-import { FieldMaterial, FieldInput } from './utils';
+import { FieldInput } from './utils';
 import ButtonIconBox from './ButtonIconBox';
 import ButtonBox from './ButtonBox';
 import { require } from '../../common/validates/validates';

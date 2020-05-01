@@ -40,7 +40,7 @@ class App extends React.Component {
               <Route path="/addrecipe" render={() => {
                 return <AddRecipeContainer />
               }} />
-              <Route path="/recipe/:id" render={() => {
+              <Route exact path="/recipe/:id" render={() => {
                 return <RecipeContainer />
               }} />
               <Route path="/user" render={() => {
