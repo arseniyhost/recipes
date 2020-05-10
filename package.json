@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "12.14.1"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
+    "install-client": "cd client && npm install && npm install reactstrap",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node server.js",
     "server": "nodemon server.js",
@@ -28,8 +31,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  },
-  "engines": {
-    "node": ">=8.10.0"
   }
 }
