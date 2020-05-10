@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getItems, addItem, deleteItem, getCurrentRecipe } from './../../store/actions/itemAction';
+import { getItems, addItem, deleteItem, getCurrentRecipe, getItemsAC, setItemsLoading, setCurrentPageAC, getItemsByPages, } from './../../store/actions/itemAction';
 import PropTypes from 'prop-types';
 import List from './List';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import * as axios from 'axios';
 
 class ListContainer extends React.Component {
     static propTypes = {
@@ -14,8 +15,19 @@ class ListContainer extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.getItems();
+        this.props.getItemsByPages(this.props.currentPage, this.props.pageSize);
     }
+    
+    onChangePageRecipes = (p) => {
+        window.scrollTo(0, 0);
+        this.props.setItemsLoading();
+        this.props.setCurrentPageAC(p);
+        axios.get(`/api/recipes?page=${p}&limit=${this.props.pageSize}`)
+            .then(res => {
+                this.props.getItemsAC(res.data.result, res.data.totalRecipeCount)
+            })
+    }
+
 
     onChangeRecipe = (recipeId) => {
         this.props.getCurrentRecipe(recipeId);
@@ -35,8 +47,10 @@ class ListContainer extends React.Component {
                 pageSize={this.props.pageSize}
                 recipes={this.props.recipes}
                 onChangeRecipe={this.onChangeRecipe}
+                onChangePageRecipes={this.onChangePageRecipes}
                 loading={this.props.loading}
                 isAuthenticated={this.props.isAuthenticated}
+                setCurrentPageAC={this.props.setCurrentPageAC}
             />
         )
     }
@@ -58,7 +72,11 @@ export default compose(
         getItems,
         addItem,
         deleteItem,
-        getCurrentRecipe
+        getCurrentRecipe,
+        getItemsAC,
+        setItemsLoading,
+        setCurrentPageAC,
+        getItemsByPages
     }),
     withRouter
 )(ListContainer);

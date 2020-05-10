@@ -12,6 +12,15 @@ export const getItems = () => (dispatch) => {
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
+export const getItemsByPages = (page, size) => (dispatch) => {
+    dispatch(setItemsLoading());
+    axios.get(`/api/recipes?page=${page}&limit=${size}`)
+        .then(res => {
+            dispatch(getItemsAC(res.data.result, res.data.totalRecipeCount))
+        })
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+}
+
 export const getCurrentRecipe = (id) => dispatch => {
     dispatch(setItemsLoading());
     axios.get(`/api/recipes/${id}`)

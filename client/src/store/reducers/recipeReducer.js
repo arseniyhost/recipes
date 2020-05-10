@@ -5,7 +5,7 @@ const initState = {
     loading: false,
     currentRecipe: null,
     recipeCount: 0,
-    pageSize: 3,
+    pageSize: 12,
     currentPage: 1
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './../AddRecipe/AddRecipe.module.css';
 import { Redirect } from 'react-router-dom';
 import { renderIngredients } from './../../common/utils/renderIngredients';
@@ -16,13 +16,22 @@ const min = minValues(2);
 let InitializeFromStateForm = props => {
     const { handleSubmit, load, pristine, reset, submitting, data } = props;
 
+    let bigData = data;
+
     const btnBack = () => {
         window.location.reload();
     }
+
+    useEffect(() => {
+        if(bigData !== data) {
+            bigData = data;
+        }
+    }, []);
+
     return (
         <Form className={style.formRecipe} onSubmit={handleSubmit}>
             <div className={style.generalBtn}>
-                <button type="button" onClick={() => load(data)}>Загрузка данных</button>
+                <button type="button" onClick={() => load(bigData)}>Загрузка данных</button>
                 <button type="button" onClick={btnBack}>Назад</button>
             </div>
             <div className={style.recipeContainer}>
@@ -101,12 +110,21 @@ let mapStateToProps = (state) => ({
 InitializeFromStateForm = connect(mapStateToProps, { load: loadAccount })(InitializeFromStateForm);
 
 class UpdateRecipe extends React.Component {
+    state = {
+        curRecipe: this.props.currentRecipe
+    }
 
-    shouldComponentUpdate(nextProps) {
-        return this.props.currentRecipe._id !== nextProps.currentRecipe_id
+
+
+    componentWillUpdate(prevProps) {
+        if(this.props.currentRecipe !== prevProps.currentRecipe) {
+            
+        }
     }
 
     render() {
+        debugger
+        console.log(this.props.currentRecipe);
         let onSubmit = (formData) => {
             console.log(formData);
             this.props.updateRecipe(formData._id, formData);
@@ -114,14 +132,14 @@ class UpdateRecipe extends React.Component {
         }
     
         const data = {
-            Ingredients: this.props.currentRecipe.Ingredients,
-            instructions: this.props.currentRecipe.instructions,
-            description: this.props.currentRecipe.description,
-            title: this.props.currentRecipe.title,
-            urlPhoto: this.props.currentRecipe.urlPhoto,
-            id: this.props.currentRecipe.id,
-            _id: this.props.currentRecipe._id,
-            category: this.props.currentRecipe.category
+            Ingredients: this.state.curRecipe.Ingredients,
+            instructions: this.state.curRecipe.instructions,
+            description: this.state.curRecipe.description,
+            title: this.state.curRecipe.title,
+            urlPhoto: this.state.curRecipe.urlPhoto,
+            id: this.state.curRecipe.id,
+            _id: this.state.curRecipe._id,
+            category: this.state.curRecipe.category
         }
     
         return (

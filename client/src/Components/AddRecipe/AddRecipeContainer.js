@@ -5,6 +5,7 @@ import { addRecipeThunk, getItems } from './../../store/actions/itemAction';
 
 class AddRecipeContainer extends React.Component {
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.getItems();
     }
 

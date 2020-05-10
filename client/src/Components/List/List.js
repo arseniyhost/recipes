@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ListGroup, Row } from 'reactstrap';
 import { TransitionGroup } from 'react-transition-group';
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { InputGroup, InputGroupAddon, Input, Spinner } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,14 +29,15 @@ const useStyles = makeStyles({
 });
 
 const List = ({
-        loading,
-        recipes,
-        onChangeRecipe,
-        category,
-        recipeCount,
-        pageSize,
-        currentPage
-    }) => {
+    loading,
+    recipes,
+    onChangeRecipe,
+    category,
+    recipeCount,
+    pageSize,
+    currentPage,
+    onChangePageRecipes
+}) => {
     const [search, setSearch] = useState("");
     const [categories, setCategories] = useState("");
 
@@ -61,14 +63,35 @@ const List = ({
         }
     );
 
+    let pagesCount = Math.ceil(recipeCount / pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
+
+    const changePage = (p) => {
+        onChangePageRecipes(p);
+    }
+
     return (
         <Row>
             <InputGroup>
                 <InputGroupAddon addonType="prepend">Поиск</InputGroupAddon>
                 <Input onChange={(e) => { updateSearch(e) }} type="text" value={search} />
             </InputGroup>
+            <div className={style.pagination}>
+                <Pagination aria-label="Page navigation example">
+                    {
+                        pages.length > 1 && pages.map(p => {
+                            return <PaginationItem>
+                                <PaginationLink  onClick={() => { changePage(p) }} className={currentPage === p && style.selected}>{p}</PaginationLink>
+                                </PaginationItem>
+                        })
+                    }
+                </Pagination>
+            </div>
             <div className={style.containerList}>
-                <div>
+                <div className={style.allRecipes}>
                     {
                         !temp && filterRecipe.map((r) => {
                             return <Card className={style.card}>
@@ -90,9 +113,7 @@ const List = ({
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-
                                     <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>Подробнее</NavLink>
-
                                 </CardActions>
                             </Card>
 
