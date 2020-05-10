@@ -21,8 +21,8 @@
     margin-top: 20px;
 }
 
-.recipeChange button {
-    margin-left: 10px;
+.recipeChange .btnDelete {
+    margin-left: 20px;
 }
 
 .wrapper .titleUser{
@@ -42,4 +42,37 @@
     width: 350px;
     height: 200px;
     border-radius: 4px;
+}
+
+@media screen and (max-width: 991px) {
+    .recipeChange {
+        flex-direction: column;
+    }
+
+    .recipeChange .aboveTitle {
+        width: 100px;
+        width: 50%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .recipeChange .buttonModify {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .recipeChange .buttonModify .btnDelete {
+        margin-top: 0px;
+    }
+
+    .recipeChange .photoRecipe {
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+
+    .recipeChange .photoRecipe img {
+        width: 450px;
+        height: 270px;
+    }
 }
