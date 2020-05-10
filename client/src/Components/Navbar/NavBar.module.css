@@ -46,16 +46,36 @@ a.btnAdd {
     width: 130px;
 }
 
+@media screen and (max-width: 991px) {
+    .fragment a {
+        font-size: 14px;
+    }
+}
+
 
 @media screen and (max-width: 767px) {
-    .fragment a {
-        margin-right: 10px;
+    .fragment li.nameUser a {
+       margin-right: 0px;
+       text-align: center;
+       display: flex;
+    }
+
+    .fragment li.btnAdd {
+        font-size: 10px;
+        width: 100px;
     }
 }
 
 @media screen and (max-width: 586px) {
     .fragment a {
         margin-right: 5px;
+    }
+}
+
+@media (min-width: 700px) {
+    .navbar-expand-sm {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
     }
 }
 

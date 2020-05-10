@@ -188,6 +188,28 @@
     }
 }
 
+@media screen and (max-width: 864px) {
+    .mainBlock .textAbout{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 777px) {
+    .mainBlock {
+        flex-direction: column;
+        width: 80vw;
+    }
+
+    .mainBlock .dishesPhoto img {
+        width: 100%;
+        height: auto;
+    }
+
+    .mainBlock .textAbout {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 525px) {
     .mainBlock {
         width: 100%;
