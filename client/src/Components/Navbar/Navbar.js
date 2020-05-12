@@ -48,7 +48,7 @@ class AppNavbar extends Component {
           <NavItem>
             <NavLink activeClassName={style.active} to="/recipes">Рецепты</NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={style.boxAdd}>
             <NavLink className={style.btnAdd} activeClassName={style.active} to="/addrecipe">Добавить рецепт</NavLink>
           </NavItem>
           <NavItem>
