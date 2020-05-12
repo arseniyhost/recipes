@@ -12,6 +12,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
     "react-scrolltop-button": "^0.1.6",
+    "reactstrap": "^8.4.1",
     "redux": "^4.0.4",
     "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0"
@@ -39,7 +40,6 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
-    "bootstrap": "^4.4.1",
-    "reactstrap": "^8.4.1"
+    "bootstrap": "^4.4.1"
   }
 }
