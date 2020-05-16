@@ -55,7 +55,6 @@ const List = ({
     }
 
     let temp = category;
-    console.log(temp);
 
     let filterRecipe = recipes.filter(
         (recipe) => {
@@ -84,8 +83,8 @@ const List = ({
                     {
                         pages.length > 1 && pages.map(p => {
                             return <PaginationItem>
-                                <PaginationLink  onClick={() => { changePage(p) }} className={currentPage === p && style.selected}>{p}</PaginationLink>
-                                </PaginationItem>
+                                <PaginationLink onClick={() => { changePage(p) }} className={currentPage === p && style.selected}>{p}</PaginationLink>
+                            </PaginationItem>
                         })
                     }
                 </Pagination>
@@ -118,83 +117,6 @@ const List = ({
                             </Card>
 
                         })
-                    }
-                    {
-                        temp === "Первые блюда" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Первые блюда', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                    {
-                        temp === "Вторые блюда" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Вторые блюда', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                    {
-                        temp === "Салаты" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Салаты', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                    {
-                        temp === "Закуски" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Закуски', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                    {
-                        temp === "Десерты" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Десерты', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                    {
-                        temp === "Соусы" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Соусы', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                    {
-                        temp === "Напитки" && <div>
-                            <div className={style.recipes}>
-                                {
-                                    filterRecipe.map(r => {
-                                        return sortByCategory(r, 'Напитки', onChangeRecipe);
-                                    })
-                                }
-                            </div>
-                        </div>
                     }
                 </div>
             </div>

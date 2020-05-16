@@ -23,46 +23,46 @@ const Home = (props) => {
                 <h2>Репецты</h2>
                 <div className={style.containerCategories}>
                     <div className={style.box}>
-                        <NavLink className={style.itemRecipe} to="/recipes/Первые блюда">
+                        <NavLink className={style.itemRecipe} to="/category/Первые блюда">
                             <div className={style.itemText}>
                                 <h3>Первые блюда</h3>
                             </div>
                         </NavLink>
-                        <NavLink className={style.itemRecipe} to="/recipes/Вторые блюда">
+                        <NavLink className={style.itemRecipe} to="/category/Вторые блюда">
                             <div className={style.itemText}>
                                 <h3>Вторые блюда</h3>
                             </div>
                         </NavLink>
-                        <NavLink className={style.itemRecipe} to="/recipes/Салаты">
+                        <NavLink className={style.itemRecipe} to="/category/Салаты">
                             <div className={style.itemText}>
                                 <h3>Салаты</h3>
                             </div>
                         </NavLink>
                     </div>
                     <div className={style.box}>
-                        <NavLink className={style.itemRecipe} to="/recipes/Закуски">
+                        <NavLink className={style.itemRecipe} to="/category/Закуски">
                             <div className={style.itemText}>
                                 <h3>Закуски</h3>
                             </div>
                         </NavLink>
-                        <NavLink className={style.itemRecipe} to="/recipes/Десерты">
+                        <NavLink className={style.itemRecipe} to="/category/Десерты">
                             <div className={style.itemText}>
                                 <h3>Десерты</h3>
                             </div>
                         </NavLink>
-                        <NavLink className={style.itemRecipe} to="/recipes/Выпечка">
+                        <NavLink className={style.itemRecipe} to="/category/Выпечка">
                             <div className={style.itemText}>
                                 <h3>Выпечка</h3>
                             </div>
                         </NavLink>
                     </div>
                     <div className={style.box}>
-                        <NavLink className={style.itemRecipe} to="/recipes/Соусы">
+                        <NavLink className={style.itemRecipe} to="/category/Соусы">
                             <div className={style.itemText}>
                                 <h3>соусы</h3>
                             </div>
                         </NavLink>
-                        <NavLink className={style.itemRecipe} to="/recipes/Напитки">
+                        <NavLink className={style.itemRecipe} to="/category/Напитки">
                             <div className={style.itemText}>
                                 <h3>напитки</h3>
                             </div></NavLink>

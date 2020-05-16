@@ -21,7 +21,6 @@ class RecipeContainer extends React.Component {
 
     componentDidMount() {
         this.refreshRecipe();
-        console.log(this.props.match.params.id);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -31,6 +30,7 @@ class RecipeContainer extends React.Component {
     }
     
     render() {
+
         return (
             <div>
                 <Recipe {...this.props} idRecipe={!this.props.match.params.id} key={1} newContent={this.props.newContent} loading={this.props.loading} />

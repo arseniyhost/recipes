@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from './../AddRecipe/AddRecipe.module.css';
-import { Redirect } from 'react-router-dom';
+import styles from "./UpdateRecipe.module.css";
 import { renderIngredients } from './../../common/utils/renderIngredients';
 import { renderInstructions } from './../../common/utils/renderInstructions';
 import ButtonBox from './../../common/utils/ButtonBox';
@@ -30,7 +30,7 @@ let InitializeFromStateForm = props => {
 
     return (
         <Form className={style.formRecipe} onSubmit={handleSubmit}>
-            <div className={style.generalBtn}>
+            <div className={styles.generalBtn}>
                 <button type="button" onClick={() => load(bigData)}>Загрузка данных</button>
                 <button type="button" onClick={btnBack}>Назад</button>
             </div>
@@ -114,8 +114,6 @@ class UpdateRecipe extends React.Component {
         curRecipe: this.props.currentRecipe
     }
 
-
-
     componentWillUpdate(prevProps) {
         if(this.props.currentRecipe !== prevProps.currentRecipe) {
             
@@ -123,7 +121,6 @@ class UpdateRecipe extends React.Component {
     }
 
     render() {
-        debugger
         console.log(this.props.currentRecipe);
         let onSubmit = (formData) => {
             console.log(formData);

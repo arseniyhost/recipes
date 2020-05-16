@@ -38,11 +38,9 @@ class ListContainer extends React.Component {
     }
 
     render() {
-        let cater = this.props.match.params.category;
 
         return (
             <List
-                category={cater}
                 recipeCount={this.props.recipeCount}
                 pageSize={this.props.pageSize}
                 recipes={this.props.recipes}

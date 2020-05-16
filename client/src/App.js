@@ -16,6 +16,7 @@ import ScrollTop from "react-scrolltop-button";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import UserContainer from './Components/UserPage/UserContainer';
 import UpdateRecipeContainer from './Components/UpdateRecipe/UpdateRecipeContainer';
+import CategoryContainer from './Components/Category/CategoryContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -32,10 +33,13 @@ class App extends React.Component {
           <main>
             <Container>
               <Route exact path="/" render={() => <Home />} />
-              <Route path="/recipes/:category?" render={() => {
+              <Route path="/recipes" render={() => {
                 return <div>
                   <ListShop />
                 </div>
+              }} />
+              <Route path="/category/:catg" render={() => {
+                return <CategoryContainer />
               }} />
               <Route path="/addrecipe" render={() => {
                 return <AddRecipeContainer />
@@ -46,7 +50,7 @@ class App extends React.Component {
               <Route path="/user" render={() => {
                 return <UserContainer />
               }} />
-              <Route path="/updaterecipe" render={() => {
+              <Route path="/updaterecipe/:id" render={() => {
                 return <UpdateRecipeContainer />
               }} />
             </Container>

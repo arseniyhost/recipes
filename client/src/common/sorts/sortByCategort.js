@@ -34,12 +34,5 @@ export const sortByCategory = (r, strCategory, onChangeRecipe) => {
 
             </CardActions>
         </Card>
-        // <div className={style.elementRecipe}>
-        //     <div><img src={r.urlPhoto} alt="photoRecipe" /></div>
-        //     <h3>{r.title}</h3>
-        //     <div>
-        //         <p><NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>{r.description.substring(0, 20) + " . . ."}</NavLink></p>
-        //     </div>
-        // </div>
     }
 }

@@ -6,20 +6,6 @@ import { Redirect } from 'react-router-dom';
 import { load } from './../../store/reducers/loadReducer';
 
 class UpdateRecipeContainer extends React.Component {
-
-    // state = {
-    //     currentRecipe: this.props.currentRecipe
-    // }
-
-
-    // componentDidUpdate(prevProps) {
-    //     if(this.state.currentRecipe !== prevProps.currentRecipe) {
-    //         this.setState({
-    //             currentRecipe: this.props.currentRecipe
-    //         })
-    //     }
-    // }
-
     render() {
         if (!this.props.currentRecipe) {
             return <Redirect to="/user" />

@@ -25,11 +25,27 @@
     font-weight: bold;
 }
 
+.allRecipes h2 {
+    text-align: center;
+}
+
+.categoryContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .allRecipes {
     display: flex;
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
+}
+
+.allRecipes div h2 {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .card {

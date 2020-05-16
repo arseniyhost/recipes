@@ -34,7 +34,12 @@ app.get(`/`, (req, res) => {
 
 app.get(`/:id`, (req, res) => {
     const id = req.params.id;
-    const details = { 'id': id };
+    let details;
+    if (id.length > 3) {
+        details = { '_id': id };
+    } else {
+        details = { 'id': id };
+    }
     Recipe.findOne(details, (err, item) => {
         if (err) {
             res.send(err);
@@ -61,11 +66,15 @@ app.put(`/:id`, async (req, res) => {
 })
 
 app.delete(`/:id`, (req, res) => {
-    const { id } = req.params;
+    Recipe.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Recipe deleted'))
+        .catch((err) => res.status(400).json('Error: ' + err));
+
+
     // const idRecipe = { 'id': id};
-    Recipe.findByIdAndDelete(id)
-        .then(recipe => recipe.remove().then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }));
+    // Recipe.findByIdAndDelete(id)
+    //     .then(recipe => recipe.remove().then(() => res.json({ success: true })))
+    //     .catch(err => res.status(404).json({ success: false }));
 })
 
 module.exports = app;

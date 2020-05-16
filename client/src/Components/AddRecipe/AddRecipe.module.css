@@ -149,6 +149,19 @@ form button {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .boxIng {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .boxIng input{
+        margin-bottom: 5px;
+    }
+}
+
 .arrayIng .errorType {
     margin-left: 20px;
 }

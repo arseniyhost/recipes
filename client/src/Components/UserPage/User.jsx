@@ -16,7 +16,6 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
     }
 
     const userRecipes = ownRecipes.filter(r => r.hasOwnProperty('idRecipe'));
-    console.log(userRecipes);
 
     return (
         <div className={style.wrapper}>
@@ -43,12 +42,19 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                         </NavLink>
                                     </div>
                                     <div className={style.buttonModify}>
-                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
+                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe/${r._id}`}>
                                             <Button color="success">Редактировать</Button>
                                         </NavLink>
                                         <div className={style.btnDelete}>
                                             <Button
-                                                onClick={(e) => { toggle(); onChangeRecipe(r.id) }}
+                                                onClick={(e) => { onDeleteClick(r._id); }}
+                                                color="danger">
+                                                Удалить
+                                        </Button>
+                                        </div>
+                                        {/* <div className={style.btnDelete}>
+                                            <Button
+                                                onClick={(e) => { toggle() }}
                                                 color="danger">
                                                 Удалить
                                             </Button>
@@ -62,7 +68,7 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                                     <Button color="secondary" onClick={toggle}>Нет</Button>
                                                 </ModalFooter>
                                             </Modal>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             }
@@ -79,15 +85,22 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                         </NavLink>
                                     </div>
                                     <div className={style.buttonModify}>
-                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe`}>
+                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe/${r._id}`}>
                                             <Button color="success">Редактировать</Button>
                                         </NavLink>
                                         <div className={style.btnDelete}>
                                             <Button
-                                                onClick={(e) => { toggle(); onChangeRecipe(r.id) }}
+                                                onClick={(e) => { onDeleteClick(r._id); }}
                                                 color="danger">
                                                 Удалить
-                                        </Button>
+                                            </Button>
+                                        </div>
+                                        {/* <div className={style.btnDelete}>
+                                            <Button
+                                                onClick={(e) => { toggle() }}
+                                                color="danger">
+                                                Удалить
+                                            </Button>
                                             <Modal isOpen={modalWindow} toggle={toggle}>
                                                 <ModalHeader toggle={toggle}>Удаление</ModalHeader>
                                                 <ModalBody>
@@ -98,7 +111,7 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                                     <Button color="secondary" onClick={toggle}>Нет</Button>
                                                 </ModalFooter>
                                             </Modal>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             }
