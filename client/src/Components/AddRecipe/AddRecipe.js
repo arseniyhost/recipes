@@ -104,8 +104,6 @@ const AddRecipe = (props) => {
         return <Redirect to="/recipes" />
     }
 
-
-
     return (
         <div className={style.addRecipeForm}>
             <h2>Новый рецепт</h2>
