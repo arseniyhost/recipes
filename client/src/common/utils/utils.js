@@ -7,19 +7,19 @@ export const FieldInput = ({ input, label, placeholder, value, type, meta: { tou
     return <div className="block">    
         <div className={style.contaierText}>
             <label>{label}</label>
-            <input className={style.fieldType + " " + (hasError ? style.errorType : "")} {...input} type={type} placeholder={placeholder} />
+            <input  className={style.fieldType + " " + (hasError ? style.errorType : "")} {...input} type={type} placeholder={placeholder} />
         </div>
         {hasError && <span className={style.error}>{error}</span>}
     </div>
 }
 
 
-export const FieldTextarea = ({ input, label, placeholder, type, meta: { touched, error } }) => {
+export const FieldTextarea = ({ input, label, placeholder, value, type, meta: { touched, error } }) => {
     let hasError = touched && error;
     return <div className="block">   
         <div className={style.contaierText}>
             <label>{label}</label>
-            <textarea className={style.fieldType + " " + (hasError ? style.errorType : "")} {...input} type={type} placeholder={placeholder} />
+            <textarea  className={style.fieldType + " " + (hasError ? style.errorType : "")} {...input} type={type} placeholder={placeholder} />
         </div>
         {hasError && <span className={style.error}>{error}</span>}
     </div>

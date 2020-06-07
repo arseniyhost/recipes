@@ -49,12 +49,30 @@ app.get(`/:id`, (req, res) => {
     })
 });
 
+app.get(`/edit-recipe/:id`, (req, res) => {
+    const id = req.params.id;
+    let details;
+    if (id.length > 3) {
+        details = { '_id': id };
+    } else {
+        details = { 'id': id };
+    }
+    Recipe.findOne(details, (err, item) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(item);
+        }
+    })
+});
+
+
 app.post(`/`, (req, res) => {
     let newRecipe = Recipe.create(req.body);
     newRecipe.save().then(recipe => res.json(recipe));
 });
 
-app.put(`/:id`, async (req, res) => {
+app.put(`/update-recipe/:id`, async (req, res) => {
     const { id } = req.params;
 
     let recipe = await Recipe.findByIdAndUpdate(id, req.body);

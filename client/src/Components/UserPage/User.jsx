@@ -3,9 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import style from './User.module.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { load } from './../../store/reducers/loadReducer';
 
 
-const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
+const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick, data }) => {
 
     const [modalWindow, setWindow] = useState(false);
 
@@ -13,6 +14,13 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
 
     if (!user) {
         return <Redirect to="/" />
+    }
+
+    let bigData = data;
+
+    const methodUpdate = (id, data) => {
+        onChangeRecipe(id); 
+        load(data);
     }
 
     const userRecipes = ownRecipes.filter(r => r.hasOwnProperty('idRecipe'));
@@ -32,7 +40,7 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
 
                         if (user._id) {
                             if (r.idRecipe === user._id) {
-                                return <div className={style.recipeChange}>
+                                return <div key={r._id} className={style.recipeChange}>
                                     <div className={style.photoRecipe}>
                                         <img src={r.urlPhoto} alt="photo" />
                                     </div>
@@ -42,7 +50,7 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                         </NavLink>
                                     </div>
                                     <div className={style.buttonModify}>
-                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe/${r._id}`}>
+                                        <NavLink onClick={(e) => { methodUpdate(r.id, bigData) }} to={`/updaterecipe/${r._id}`}>
                                             <Button color="success">Редактировать</Button>
                                         </NavLink>
                                         <div className={style.btnDelete}>
@@ -52,30 +60,13 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                                 Удалить
                                         </Button>
                                         </div>
-                                        {/* <div className={style.btnDelete}>
-                                            <Button
-                                                onClick={(e) => { toggle() }}
-                                                color="danger">
-                                                Удалить
-                                            </Button>
-                                            <Modal isOpen={modalWindow} toggle={toggle}>
-                                                <ModalHeader toggle={toggle}>Удаление</ModalHeader>
-                                                <ModalBody>
-                                                    Вы действительно хотите удалить этот рецепт?
-                                                </ModalBody>
-                                                <ModalFooter>
-                                                    <Button color="primary" onClick={(e) => { onDeleteClick(r._id); setTimeout(toggle(), 1000) }}>Да</Button>{' '}
-                                                    <Button color="secondary" onClick={toggle}>Нет</Button>
-                                                </ModalFooter>
-                                            </Modal>
-                                        </div> */}
                                     </div>
                                 </div>
                             }
                         }
                         else {
                             if (r.idRecipe === user.id) {
-                                return <div className={style.recipeChange}>
+                                return <div key={r.id} className={style.recipeChange}>
                                     <div className={style.photoRecipe}>
                                         <img src={r.urlPhoto} alt="photo" />
                                     </div>
@@ -85,7 +76,7 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick }) => {
                                         </NavLink>
                                     </div>
                                     <div className={style.buttonModify}>
-                                        <NavLink onClick={(e) => { onChangeRecipe(r.id) }} to={`/updaterecipe/${r._id}`}>
+                                        <NavLink onClick={(e) => { methodUpdate(r.id, bigData) }} to={`/updaterecipe/${r._id}`}>
                                             <Button color="success">Редактировать</Button>
                                         </NavLink>
                                         <div className={style.btnDelete}>

@@ -23,6 +23,7 @@ class UserContainer extends React.Component {
                 onChangeRecipe={this.onChangeRecipe}
                 user={this.props.user}
                 ownRecipes={this.props.ownRecipes}
+                data={this.props.data}
             />
         )
     }
@@ -30,7 +31,8 @@ class UserContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     user: state.auth.user,
-    ownRecipes: state.recipes.recipes
+    ownRecipes: state.recipes.recipes,
+    data: state.load.data
 })
 
 export default connect(mapStateToProps, { getItems, getCurrentRecipe, deleteItem })(UserContainer);

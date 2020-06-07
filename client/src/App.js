@@ -57,7 +57,7 @@ class App extends React.Component {
             <ScrollTop
               text={<ArrowUpwardIcon />}
               distance={200}
-              speed={500}
+              speed={400}
               icon={<ArrowUpwardIcon />}
               id={"spinner"}
             />

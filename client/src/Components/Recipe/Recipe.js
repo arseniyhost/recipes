@@ -68,7 +68,7 @@ const RecipeInformation = ({ newContent }) => {
                     newContent.instructions &&
                     newContent.instructions.map((ins, id) => {
                         return <div className={style.box} key={id}>
-                            <p>{`Шаг ${i++}`}</p>
+                            <p className={style.step}>{`Шаг ${i++}`}</p>
                             <p>{ins.instructionsStep}</p>
                             {ins.photo && <div><img src={ins.photo} alt="photoIns" /></div>}
                         </div>

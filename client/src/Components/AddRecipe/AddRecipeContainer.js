@@ -1,6 +1,7 @@
 import React from 'react';
 import AddRecipe from './AddRecipe';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { addRecipeThunk, getItems } from './../../store/actions/itemAction';
 
 class AddRecipeContainer extends React.Component {
@@ -10,6 +11,7 @@ class AddRecipeContainer extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 <AddRecipe

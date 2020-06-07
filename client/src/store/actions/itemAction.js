@@ -32,7 +32,7 @@ export const getCurrentRecipe = (id) => dispatch => {
 };
 
 export const updateRecipe = (id, recipe) => (dispatch, getState) => {
-    axios.put(`/api/recipes/${id}`, recipe, tokenConfig(getState))
+    axios.put(`/api/recipes/update-recipe/${id}`, recipe, tokenConfig(getState))
         .then(res => dispatch({
             type: GET_ITEMS,
             payload: res.data
