@@ -82,7 +82,7 @@ class AppNavbar extends Component {
 
     return (
       <div id={style.header}>
-        <Navbar color='dark' dark expand='sm' className='mb-5'>
+        <Navbar color='dark' dark expand='sm' className=''>
           <Container>
             <NavbarBrand>
               <NavLink className="text-white" to="/">
@@ -97,6 +97,34 @@ class AppNavbar extends Component {
             </Collapse>
           </Container>
         </Navbar>
+        <div className={style.categoryContainer}>
+          <ul>
+            <li>
+              <NavLink to="/category/Первые блюда">Первые блюда</NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/Вторые блюда">Вторые блюда</NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/Салаты">Салаты</NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/Закуски">Закуски</NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/Десерты">Десерты</NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/Выпечка">Выпечка</NavLink>
+            </li>
+            <li>
+              <NavLink to="/category/Соусы">Соусы</NavLink>
+            </li>
+            <li>
+              <NavLink to="/recipes">Все рецепты</NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }

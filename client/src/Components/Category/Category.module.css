@@ -9,6 +9,15 @@
     margin: 20px 0;
 }
 
+.linkTitle h3, .linkTitle p {
+    text-decoration: none;
+    color: #2d2d2d;
+}
+
+.titleLink {
+    text-decoration: none;
+}
+
 .containerListCategory {
     display: flex;
 }

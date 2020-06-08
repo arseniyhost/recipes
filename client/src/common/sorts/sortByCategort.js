@@ -19,14 +19,16 @@ export const sortByCategory = (r, strCategory, onChangeRecipe) => {
                         title={r.title}
                     />
                 </NavLink>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        <h3>{r.title}</h3>
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {r.description.substring(0, 25) + " . . ."}
-                    </Typography>
-                </CardContent>
+                <NavLink className={style.linkTitle} onClick={(e) => { onChangeRecipe(r.id) }} to={`/recipe/${r.id}`}>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            <h3 className={style.titleLink}>{r.title}</h3>
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {r.description.substring(0, 25) + " . . ."}
+                        </Typography>
+                    </CardContent>
+                </NavLink>
             </CardActionArea>
             <CardActions>
 
