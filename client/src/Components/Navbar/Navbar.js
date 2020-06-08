@@ -46,7 +46,7 @@ class AppNavbar extends Component {
           <NavItem className={style.nameUser}>
             <NavLink activeClassName={style.active} exact to="/user">
               <img className={style.icon} src={icon} />
-              {user ? `Welcome ${user.name}` : ''}</NavLink>
+              {user ? `${user.name}` : ''}</NavLink>
           </NavItem>
           <NavItem>
             <NavLink activeClassName={style.active} to="/recipes">Рецепты</NavLink>
