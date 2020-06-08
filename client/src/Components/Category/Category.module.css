@@ -44,14 +44,6 @@
     margin-top: 38px;
 }
 
-.card:first-child, .card:nth-child(2n), .card:nth-child(2n + 1) {
-    margin-right: 44px;
-}
-
-.card:nth-child(3), .card:nth-child(6), .card:nth-child(9), .card:nth-child(12), .card:nth-child(15), .card:nth-child(18) {
-    margin-right: 0px;
-}
-
 
 .media {
     height: 250px;
@@ -61,6 +53,7 @@
     .containerList .card {
        width: 280px;
     }
+    
 }
 
 
@@ -91,5 +84,13 @@
         display: flex;
         width: 1140px;
         flex-wrap: wrap;
+    }
+
+    .card:first-child, .card:nth-child(2n), .card:nth-child(2n + 1) {
+        margin-right: 44px;
+    }
+    
+    .card:nth-child(3), .card:nth-child(6), .card:nth-child(9), .card:nth-child(12), .card:nth-child(15), .card:nth-child(18) {
+        margin-right: 0px;
     }
 }
