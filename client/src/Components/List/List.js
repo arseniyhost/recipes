@@ -45,11 +45,6 @@ const List = ({
         setSearch(e.target.value.substr(0, 20));
     }
 
-
-    let onChangeCategories = (smallCat) => {
-        setCategories(smallCat);
-    }
-
     if (loading) {
         return <Spinner style={{ width: '3rem', height: '3rem' }} />
     }

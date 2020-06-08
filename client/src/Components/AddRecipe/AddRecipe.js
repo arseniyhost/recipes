@@ -75,9 +75,11 @@ const AddRecipe = (props) => {
 
     if(props.user.user.id) {
         idUserRecipe = props.user.user.id;
-    } else {
+    } 
+    else {
         idUserRecipe = props.user.user._id
     }
+
 
     let onSubmit = (formData) => {
         let recipeData = {

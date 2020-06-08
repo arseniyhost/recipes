@@ -17,6 +17,7 @@ import Logout from '../Logout/Logout';
 import { NavLink } from 'react-router-dom';
 import style from './NavBar.module.css';
 import logo from './../../images/recipes-logo.png';
+import icon from './../../images/icon1.png';
 
 class AppNavbar extends Component {
   state = {
@@ -43,7 +44,9 @@ class AppNavbar extends Component {
             <NavLink activeClassName={style.active} exact to="/">Главная</NavLink>
           </NavItem>
           <NavItem className={style.nameUser}>
-            <NavLink activeClassName={style.active} exact to="/user">{user ? `Welcome ${user.name}` : ''}</NavLink>
+            <NavLink activeClassName={style.active} exact to="/user">
+              <img className={style.icon} src={icon} />
+              {user ? `Welcome ${user.name}` : ''}</NavLink>
           </NavItem>
           <NavItem>
             <NavLink activeClassName={style.active} to="/recipes">Рецепты</NavLink>
@@ -60,7 +63,7 @@ class AppNavbar extends Component {
 
     const guestLinks = (
       <Fragment>
-        <div className={style.fragment}>
+        <div className={style.guestContainer}>
           <NavItem>
             <NavLink activeClassName={style.active} exact to="/">Главная</NavLink>
           </NavItem>

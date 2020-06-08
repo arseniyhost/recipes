@@ -1,4 +1,4 @@
-.fragment {
+.fragment, .guestContainer {
     display: flex;
     align-items: center;
 }
@@ -8,13 +8,17 @@
     font-weight: 600;
 }
 
+.icon {
+    margin-right: 10px;
+}
 
-.fragment a {
+
+.fragment a, .guestContainer a {
     margin-right: 20px;
     color: #bcbcbc;
 }
 
-.fragment a:hover {
+.fragment a:hover, .guestContainer a:hover {
     margin-right: 20px;
     color: #79CC7D;
 }
@@ -47,19 +51,28 @@ a.btnAdd {
 }
 
 @media screen and (max-width: 991px) {
-    .fragment a {
+    .fragment a, .guestContainer a {
         font-size: 14px;
     }
 }
 
 @media screen and (max-width: 575px) {
-    .fragment li a:hover {
+    .fragment li a:hover, .guestContainer li a:hover {
         margin-right: 0px;
     }
 
     .fragment li.boxAdd {
         margin-top: 20px;
-    } 
+    }
+
+    .guestContainer li:nth-child(3) a, .guestContainer li:last-child a {
+        margin-top: 0px;
+        padding: 0;
+    }
+
+    .guestContainer li {
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -77,7 +90,7 @@ a.btnAdd {
 }
 
 @media screen and (max-width: 586px) {
-    .fragment a {
+    .fragment a, .guestContainer a {
         margin-right: 5px;
     }
 }
@@ -90,16 +103,19 @@ a.btnAdd {
 }
 
 @media screen and (max-width: 575px) {
-    .fragment {
+    .fragment, .guestContainer {
         flex-direction: column;
     }
 
-    .fragment a {
+    .fragment a, .guestContainer a {
         margin-right: 0px;
         margin-top: 20px;
         justify-content: center;
         align-items: center;
         font-size: 20px;
+    }
+
+    .fragment a:last-child {    
     }
 
     .nameUser {

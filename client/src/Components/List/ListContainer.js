@@ -36,7 +36,7 @@ class ListContainer extends React.Component {
     onDeleteClick = (id) => {
         this.props.deleteItem(id);
     }
-
+    
     render() {
 
         return (

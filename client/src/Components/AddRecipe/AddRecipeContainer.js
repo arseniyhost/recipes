@@ -10,7 +10,12 @@ class AddRecipeContainer extends React.Component {
         this.props.getItems();
     }
 
+
+
     render() {
+        if (!this.props.user.user) {
+            return <Redirect to="/" />
+        }
 
         return (
             <div>

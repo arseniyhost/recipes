@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './../../Components/List/List.module.css';
+import style from './../../Components/Category/Category.module.css';
 import { NavLink } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';

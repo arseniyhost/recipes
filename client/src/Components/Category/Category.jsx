@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Row } from 'reactstrap';
 import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
-import style from './../List/List.module.css';
+// import style from './../List/List.module.css';
+import style from './Category.module.css';
 import { sortByCategory } from './../../common/sorts/sortByCategort';
 
 const Category = ({ catString, recipes, onChangeRecipe }) => {
@@ -29,22 +30,14 @@ const Category = ({ catString, recipes, onChangeRecipe }) => {
                 <Input onChange={(e) => { updateSearch(e) }} type="text" value={search} />
             </InputGroup>
             <div className={style.containerList}>
-                <Row>
-                    <div className={style.recipesCategory}>
-                        <div className={style.allRecipes}>
-                            {
-                                <div>
-                                    <h2>{`${catString}`}</h2>
-                                    <div className={style.categoryArrays}>
-                                        {
-                                            categoryArray
-                                        }
-                                    </div>
-                                </div>
-                            }
-                        </div>
+                <h2>{`${catString}`}</h2>
+                <div className={style.recipesCategory}>
+                    <div className={style.allRecipes}>
+                        {
+                            categoryArray
+                        }
                     </div>
-                </Row>
+                </div>
             </div>
         </Row >
     )
