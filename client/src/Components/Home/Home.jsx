@@ -20,7 +20,7 @@ const Home = (props) => {
             </div>
 
             <div className={style.categories}>
-                <h2>Репецты</h2>
+                <h2>Рецепты</h2>
                 <div className={style.containerCategories}>
                     <div className={style.box}>
                         <NavLink className={style.itemRecipe} to="/category/Первые блюда">
