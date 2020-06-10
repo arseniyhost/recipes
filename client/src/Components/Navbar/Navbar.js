@@ -18,6 +18,7 @@ import { NavLink } from 'react-router-dom';
 import style from './NavBar.module.css';
 import logo from './../../images/recipes-logo.png';
 import icon from './../../images/icon1.png';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 class AppNavbar extends Component {
   state = {
@@ -45,7 +46,8 @@ class AppNavbar extends Component {
           </NavItem>
           <NavItem className={style.nameUser}>
             <NavLink activeClassName={style.active} exact to="/user">
-              <img className={style.icon} src={icon} />
+              {/* <img className={style.icon} src={icon} /> */}
+              <AccountCircleIcon className={style.icon} />
               {user ? `${user.name}` : ''}</NavLink>
           </NavItem>
           <NavItem>
