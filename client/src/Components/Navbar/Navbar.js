@@ -16,7 +16,7 @@ import LoginModal from '../Login/LoginModal';
 import Logout from '../Logout/Logout';
 import { NavLink } from 'react-router-dom';
 import style from './NavBar.module.css';
-import logo from './../../images/recipes-logo.png';
+import logo from './../../images/logo-2.png';
 import icon from './../../images/icon1.png';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
