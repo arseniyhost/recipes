@@ -29,7 +29,7 @@ const User = ({ user, ownRecipes, onChangeRecipe, onDeleteClick, data }) => {
         <div className={style.wrapper}>
             <div className={style.titleUser}>
                 <h2>Профиль</h2>
-                <p className={style.nameUser}>Добро пожаловать {user.name}</p>
+                <p className={style.nameUser}>Добро пожаловать, {user.name}</p>
             </div>
             <div className={style.titleRecipes}>
                 <p>Ваши рецепты</p>

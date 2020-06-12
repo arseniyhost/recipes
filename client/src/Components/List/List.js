@@ -115,6 +115,17 @@ const List = ({
                     }
                 </div>
             </div>
+            <div className={style.pagination}>
+                <Pagination aria-label="Page navigation example">
+                    {
+                        pages.length > 1 && pages.map(p => {
+                            return <PaginationItem>
+                                <PaginationLink onClick={() => { changePage(p) }} className={currentPage === p && style.selected}>{p}</PaginationLink>
+                            </PaginationItem>
+                        })
+                    }
+                </Pagination>
+            </div>
         </Row>
     );
 }
